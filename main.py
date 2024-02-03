@@ -50,26 +50,18 @@ kv = '''
             spacing: 20
             padding: "0dp", "40dp", "0dp", "0dp"
 
-            MDRaisedButton:
-                id: logout
+            MDFillRoundFlatIconButton:
                 text: "Login"
                 on_release: app.root.current = "login"
                 on_release: app.root.get_screen("main").change_text()
                 theme_text_color: 'Custom'
                 text_color: 1, 1, 1, 1
                 md_bg_color: 2/255, 61/255, 224/255, 1
-                font_name: "Roboto-Bold"
                 size_hint: 1, None
-                canvas.before:
-                    Color:
-                        rgba: 2/255, 61/255, 224/255, 1
-                    RoundedRectangle:
-                        pos: self.pos
-                        size: self.size
-                        radius: [10,] 
+                height: "50dp"
+                font_name: "Roboto-Bold"
 
-            MDRaisedButton:
-                id: signout
+            MDFillRoundFlatIconButton:
                 text: "Signup"
                 on_release: app.root.current = "signup"
                 on_release: app.root.get_screen("main").change_text1()
@@ -77,6 +69,9 @@ kv = '''
                 md_bg_color: 2/255, 61/255, 224/255, 1
                 font_name: "Roboto-Bold"
                 size_hint: 1, None
+                text_color: 1, 1, 1, 1
+                height: "50dp"
+                font_name: "Roboto-Bold"
         MDLabel:
             text:''
 
@@ -207,26 +202,24 @@ kv = '''
             pos_hint: {'center_x': 0.50, 'center_y': 0.5}
             size_hint: 1, None
             height: "50dp"
-
-            MDRaisedButton:
+            MDFillRoundFlatIconButton:
                 text: "Back"
                 on_release: app.root.current = "main"
                 md_bg_color: 0.031, 0.463, 0.91, 1
                 theme_text_color: 'Custom'
-                text_color: 0, 0, 0, 1
+                text_color: 1, 1, 1, 1
                 size_hint: 1, None
                 height: "50dp"
                 font_name: "Roboto-Bold"
-
-            MDRaisedButton:
+                
+            MDFillRoundFlatIconButton:
                 text: "Signup"
                 on_release: app.root.get_screen("signup").login(name.text,mobile.text,email.text, password.text, password2.text)
                 md_bg_color: 0.031, 0.463, 0.91, 1
-                pos_hint: {'right': 1, 'y': 0.5}
-                text_color: 0, 0, 0, 1
+                theme_text_color: 'Custom'
+                text_color: 1, 1, 1, 1
                 size_hint: 1, None
                 height: "50dp"
-                font_name: "Roboto-Bold"
                 font_name: "Roboto-Bold"
         MDLabel:
             text:""
@@ -401,26 +394,26 @@ kv = '''
             pos_hint: {'center_x': 0.5, 'center_y': 0.32}
             size_hint: 1, None
             height: "50dp"
-            MDRaisedButton:
+            MDFillRoundFlatIconButton:
                 text: "Back"
                 on_release: app.root.current = "main"
                 on_release: app.root.get_screen("login").change_text3()
                 md_bg_color: 0.031, 0.463, 0.91, 1
                 theme_text_color: 'Custom'
-                text_color: 0, 0, 0, 1
+                text_color: 1, 1, 1, 1
                 size_hint: 1, None
                 height: "50dp"
                 font_name: "Roboto-Bold"
 
-            MDRaisedButton:
+            MDFillRoundFlatIconButton:
                 text: "Login"
                 on_release: app.root.get_screen("login").on_login(email.text, password.text)
                 md_bg_color: 0.031, 0.463, 0.91, 1
                 pos_hint: {'right': 1, 'y': 0.5}
-                text_color: 0, 0, 0, 1
+                theme_text_color: 'Custom'
+                text_color: 1, 1, 1, 1
                 size_hint: 1, None
                 height: "50dp"
-                font_name: "Roboto-Bold"
                 font_name: "Roboto-Bold"
         MDLabel:
             text:""
