@@ -9,6 +9,20 @@ import webbrowser
 from kivy.core.window import Window
 
 kv = '''
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+
+<DrawerLabelItem@MDNavigationDrawerItem>
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    focus_behavior: False
+    selected_color: "#4a4939"
+    _no_ripple_effect: True
 <MainScreen>:
     canvas.before:
         Color:
@@ -244,97 +258,429 @@ kv = '''
                 text_color: 6/255, 143/255, 236/255, 1
 
 <MainDashboardLB>
-    canvas.before:
-        Color:
-            rgba: 1, 1, 1, 1  
-        Rectangle:
-            size: self.size
-            pos: self.pos
 
-    MDBoxLayout:
-        orientation: 'vertical'
-        spacing: dp(30)
-        padding: dp(30)
+    MDScreen:
 
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: dp(30)
-            MDLabel: 
-                text: ""
+        MDNavigationLayout:
 
-            MDLabel: 
-                text: ""
-            MDLabel:
-                text: "Looking to get a QuickBuck "
-                halign: "center"
-                bold: True
-            MDLabel:
-                text: " What's on yours mind? "
-                halign: "center"
-        MDLabel:
-            text: "Welcome to GTPL"
-            halign: "center"
-        MDLabel:
-            id:loginname
-            halign: "center"
-            color: 1/255, 26/255, 51/255, 1
-            bold:"True"
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: dp(25)
-            padding: dp(15)
-            size_hint_y: None
-            height: self.minimum_height
+            MDScreenManager:
 
-            canvas.before:
-                Color:
-                    rgba: 0, 1, 0, 1  
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [25, 25, 25, 25]
+                MDScreen:
 
-            MDIconButton:
-                icon: 'account-supervisor'
-                on_release: app.on_button_click()
+                    BoxLayout:
+                        orientation: 'vertical'
 
-            MDLabel:
-                text: '  Get a Loan'
-                halign: 'left'
-            MDLabel:
-                text: '  I am looking to borrow from a lender'
-                halign: 'left'
-            MDLabel:
-                text: ''
-        BoxLayout:
-            orientation: 'vertical'
-            spacing: dp(25)
-            padding: dp(10)
-            size_hint_y: None
-            height: self.minimum_height
+                        MDTopAppBar:
+                            title: ""
+                            elevation: 0
+                            pos_hint: {"top": 1}
+                            md_bg_color: "#ffffff"
+                            specific_text_color: "#4a4939"
+                            left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                            right_action_items: [["bell"],["logout", lambda x: app.logout_function()]]
+                        ScrollView:
+                            MDBoxLayout:
+                                orientation: 'vertical'
+                                size_hint_y: None
+                                spacing: dp(10)
+                                padding: dp(25)
+                                height: dp(1500) 
+                                MDBoxLayout:
+                                    orientation: 'vertical'
+                                    spacing: dp(10)
+                                    BoxLayout:  
+                                        orientation: 'vertical'
+                                        size_hint_y: None
+                                        height: dp(100)
+                                        MDLabel:
+                                            text: 'Find the trending events'
+                                            bold: True
+                                            size_hint_y: None
+                                            height: dp(10)
+                                        MDFloatLayout:
+                                            MDTextField:
+                                                hint_text: "Search"
+                                                pos_hint: {"center_x": 0.5, "top": 1}
+                                                on_text: app.on_search(self.text)
 
-            canvas.before:
-                Color:
-                    rgba: 230/250, 230/250, 230/250 , 1  
-                RoundedRectangle:
-                    pos: self.pos
-                    size: self.size
-                    radius: [25, 25, 25, 25]
+                                            MDIconButton:
+                                                icon: 'magnify'
+                                                pos_hint: {"right": 1, "top": 1} 
+                                    BoxLayout:  
+                                        orientation: 'vertical'
+                                        size_hint_y: None
+                                        height: dp(150)
+                                        MDGridLayout:
+                                            cols: 2
+                                            size_hint_y: None
+                                            height: dp(35)
+                                            MDLabel:
+                                                text: "Popular Events"
+                                                bold: True
+                                                halign: "left"
+                                                font_size:dp(14)
+                                                text_color: 0, 0, 0, 1 
+                                                halign: 'left'
 
-            MDIconButton:
-                icon: 'radioactive-circle-outline'
-                on_release: app.on_button_click()
+                                            MDFlatButton:
+                                                text: "See all"
+                                                font_size:dp(12)
+                                                theme_text_color: 'Custom'
+                                                text_color: 6/255, 143/255, 236/255, 1
+                                        MDGridLayout:
+                                            cols: 2
+                                            spacing: dp(16)
 
-            MDLabel:
-                text: '  Lend'
-                halign: 'left'
-            MDLabel:
-                text: '  I am looking to issue a new loan as an investment'
-                halign: 'left'
-            MDLabel: 
-                text: ""
-        MDLabel: 
-            text: ""
+                                            MDCard:
+                                                size_hint: 1, None
+                                                height: dp(35)
+                                                orientation: 'vertical'
+                                                size: "280dp", "220dp"
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                                                Image:
+                                                    source: "BIRTHDAY.jpg"
+                                                    size_hint_y: 0.6  
+                                                    allow_stretch: True 
+
+                                                MDBoxLayout:
+                                                    orientation: 'vertical'
+                                                    padding: dp(16)
+
+                                                    MDLabel:
+                                                        text: "Birthday Party"
+                                                        theme_text_color: "Secondary"
+                                                        halign: "center"
+                                                        font_size: "18sp"
+                                                        size_hint_y: None
+                                                        height: "40dp"
+
+                                                    BoxLayout:
+                                                        orientation: 'horizontal'
+                                                        size_hint_y: None
+                                                        height: dp(30)
+
+
+                                                        MDIconButton:
+                                                            icon: 'map-marker'
+                                                            icon_size: dp(15) 
+                                                            theme_text_color: 'Custom'
+                                                            text_color: 6/255, 143/255, 236/255, 1
+
+                                                        MDLabel:
+                                                            text: "Location"
+                                                            font_size: dp(15)
+                                                            theme_text_color: 'Custom'
+                                                            text_color: 6/255, 143/255, 236/255, 1
+                                                    
+                                                    MDFillRoundFlatIconButton:
+                                                        text: "Interested"
+                                                        font_size: dp(13)
+                                                        text_color: 98/255, 6/255, 204/255, 1 
+                                                        icon: "thumb-up-outline"
+                                                        icon_color: 98/255, 6/255, 204/255, 1
+                                                        pos_hint: {'center_x': 0.6, 'center_y': 0.4}
+                                                        md_bg_color: 1, 1, 1, 1
+                                            MDCard:
+                                                size_hint: 1, None
+                                                height: dp(35)
+                                                orientation: 'vertical'
+                                                size: "280dp", "220dp"
+                                                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                                                Image:
+                                                    source: "GETTOGETHER.jpg"
+                                                    size_hint_y: 0.6  
+                                                    allow_stretch: True 
+
+                                                MDBoxLayout:
+                                                    orientation: 'vertical'
+                                                    padding: dp(16)
+
+                                                    MDLabel:
+                                                        text: "Get Together"
+                                                        theme_text_color: "Secondary"
+                                                        halign: "center"
+                                                        font_size: "18sp"
+                                                        size_hint_y: None
+                                                        height: "40dp"
+
+                                                    BoxLayout:
+                                                        orientation: 'horizontal'
+                                                        size_hint_y: None
+                                                        height: dp(30)
+
+
+                                                        MDIconButton:
+                                                            icon: 'map-marker'
+                                                            icon_size: dp(15) 
+                                                            theme_text_color: 'Custom'
+                                                            text_color: 6/255, 143/255, 236/255, 1
+
+                                                        MDLabel:
+                                                            text: "Location"
+                                                            font_size: dp(15)
+                                                            theme_text_color: 'Custom'
+                                                            text_color: 6/255, 143/255, 236/255, 1
+
+                                                    MDFillRoundFlatIconButton:
+                                                        text: "Interested"
+                                                        font_size: dp(13)
+                                                        text_color: 98/255, 6/255, 204/255, 1 
+                                                        icon: "thumb-up-outline"
+                                                        icon_color: 98/255, 6/255, 204/255, 1
+                                                        pos_hint: {'center_x': 0.6, 'center_y': 0.4}
+                                                        md_bg_color: 1, 1, 1, 1
+
+                                    BoxLayout:  
+                                        orientation: 'vertical'
+                                        spacing: dp(10)
+
+                                        MDGridLayout:
+                                            cols: 2
+                                            size_hint_y: None
+                                            height: dp(35)
+                                            MDLabel:
+                                                text: "Running Events"
+                                                bold: True
+                                                halign: "left"
+                                                font_size:dp(14)
+                                                text_color: 0, 0, 0, 1 
+                                                halign: 'left'
+                                        MDGridLayout:
+                                            cols: 3
+                                            size_hint_y: None
+                                            height: dp(70)
+                                            MDBoxLayout:
+                                                orientation: 'vertical'
+                                                Image:
+                                                    source: "DPARTY.jpg"
+                                                    size_hint_y: 0.6  
+                                                    allow_stretch: True
+                                            MDBoxLayout:
+                                                orientation: 'vertical'
+                                                spacing: dp(5)
+                                                MDLabel:
+                                                    text: "  Drinking party"
+                                                    font_size: dp(12)
+                                                    bold: True
+                                                MDLabel:
+                                                    text: "  location"
+                                                    font_size: dp(12)
+                                                    text_color: 6/255, 143/255, 236/255, 1
+
+                                            MDBoxLayout:
+                                                orientation: 'vertical'
+                                                spacing: dp(5)
+                                                MDRaisedButton:
+                                                    text: "Live"
+                                                    text_color: 230/255, 0, 0, 1
+                                                    md_bg_color: 1, 230/255,230/255, 1
+                                                    pos_hint: {'right': 1, 'y': 0.5}
+                                                    size_hint: None, None
+                                                    size: "70dp", "20dp" 
+                                                    font_name: "Roboto-Bold"
+
+
+                                        MDGridLayout:
+                                            cols: 2
+                                            size_hint_y: None
+                                            height: dp(35)
+                                            spacing: dp(5)
+
+                                            MDLabel:
+                                                text: "See More"
+                                                text_color: 0, 0, 0, 1
+                                                font_size: dp(13)
+                                                halign: "right"
+                                                theme_text_color: 'Custom'          
+                                            MDIconButton:
+                                                icon: 'arrow-right-thick'
+                                                text_color: 0, 0, 0, 1
+                                                icon_size: dp(13) 
+                                                halign: "left"
+                                                theme_text_color: 'Custom'
+                                    BoxLayout:  
+                                        orientation: 'vertical'
+                                        MDGridLayout:
+                                            cols: 1
+                                            size_hint_y: None
+                                            height: dp(35)
+                                            MDLabel:
+                                                text: "Let's get started"
+                                                bold: True
+                                                halign: "center"
+                                        MDGridLayout:
+                                            cols: 2
+                                            spacing:dp(15)
+                                            size_hint_y: None
+                                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                            height: self.minimum_height
+                                            width: self.minimum_width
+                                            size_hint_x: None
+                                            MDFlatButton:
+                                                size_hint: None, None
+                                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                md_bg_color: 1/255, 6/255, 48/255, 1 
+                                                size_hint_y: None
+                                                height: dp(60)
+                                                size_hint_x: None
+                                                width: dp(110)
+
+                                                BoxLayout:
+                                                    orientation: 'horizontal'
+                                                    spacing:dp(10)
+                                                    MDLabel:
+                                                        text: "Event Creation"
+                                                        font_size:dp(14)
+                                                        bold:True
+                                                        theme_text_color: 'Custom'
+                                                        halign: "center"
+                                                        text_color:1,1,1,1
+                                                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                            MDFlatButton:
+                                                size_hint: None, None
+                                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                md_bg_color: 1/255, 6/255, 48/255, 1 
+                                                size_hint_y: None
+                                                height: dp(60)
+                                                size_hint_x: None
+                                                width: dp(110)
+
+                                                BoxLayout:
+                                                    orientation: 'horizontal'
+                                                    spacing:dp(10)
+                                                    MDLabel:
+                                                        text: "View Events"
+                                                        font_size:dp(14)
+                                                        bold:True
+                                                        theme_text_color: 'Custom'
+                                                        halign: "center"
+                                                        text_color:1,1,1,1
+                                                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                            MDFlatButton:
+                                                size_hint: None, None
+                                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                md_bg_color: 1/255, 6/255, 48/255, 1 
+                                                size_hint_y: None
+                                                height: dp(60)
+                                                size_hint_x: None
+                                                width: dp(110)
+                                                BoxLayout:
+                                                    orientation: 'horizontal'
+                                                    spacing:dp(10)
+                                                    MDLabel:
+                                                        text: "Budget for Events"
+                                                        font_size:dp(14)
+                                                        bold:True
+                                                        theme_text_color: 'Custom'
+                                                        halign: "center"
+                                                        text_color:1,1,1,1
+                                                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                                            MDFlatButton:
+                                                size_hint: None, None
+                                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                md_bg_color: 1/255, 6/255, 48/255, 1 
+                                                size_hint_y: None
+                                                height: dp(60)
+                                                size_hint_x: None
+                                                width: dp(110)
+
+                                                BoxLayout:
+                                                    orientation: 'horizontal'
+                                                    spacing:dp(10)
+                                                    MDLabel:
+                                                        text: "Vendor Management"
+                                                        font_size:dp(14)
+                                                        bold:True
+                                                        theme_text_color: 'Custom'
+                                                        halign: "center"
+                                                        text_color:1,1,1,1
+                                                        pos_hint: {'center_x': 0.5, 'center_y': 0.5} 
+                                            MDFlatButton:
+                                                size_hint: None, None
+                                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                md_bg_color: 1/255, 6/255, 48/255, 1  
+                                                size_hint_y: None
+                                                height: dp(60)
+                                                size_hint_x: None
+                                                width: dp(110)
+
+                                                BoxLayout:
+                                                    orientation: 'horizontal'
+                                                    spacing:dp(10)
+                                                    MDLabel:
+                                                        text: "Guest List Management"
+                                                        font_size:dp(14)
+                                                        bold:True
+                                                        theme_text_color: 'Custom'
+                                                        halign: "center"
+                                                        text_color:1,1,1,1
+                                                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                            MDFlatButton:
+                                                size_hint: None, None
+                                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                md_bg_color: 1/255, 6/255, 48/255, 1 
+                                                size_hint_y: None
+                                                height: dp(60)
+                                                size_hint_x: None
+                                                width: dp(110)
+
+                                                BoxLayout:
+                                                    orientation: 'horizontal'
+                                                    spacing:dp(10)
+                                                    MDLabel:
+                                                        text: "Task check list"
+                                                        font_size:dp(14)
+                                                        bold:True
+                                                        theme_text_color: 'Custom'
+                                                        halign: "center"
+                                                        text_color:1,1,1,1
+                                                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                    MDLabel:
+                                        text: ''
+                                    MDLabel:
+                                        text: ''
+
+
+            MDNavigationDrawer:
+                id: nav_drawer
+                radius: (0, 16, 16, 0)
+
+                MDNavigationDrawerMenu:
+
+                    MDNavigationDrawerHeader:
+                        title: "Welcome"
+                        title_color: "#4a4939"
+                        text: "sai mamidala"
+                        spacing: "4dp"
+                        padding: "12dp", 0, 0, "56dp"
+
+                    MDNavigationDrawerLabel:
+                        text: "Explore Menu"
+
+                    DrawerClickableItem:
+                        icon: "account"
+                        text_right_color: "#4a4939"
+                        text: "Profile"
+
+                    DrawerClickableItem:
+                        icon: "message-processing"
+                        text: "Communication"
+                    DrawerClickableItem:
+                        icon: "alert"
+                        text: "Emergency"
+                    DrawerClickableItem:
+                        icon: "book-edit"
+                        text: "Feedback"
+                    DrawerClickableItem:
+                        icon: "help-circle"
+                        text: "Help"
+                    DrawerClickableItem:
+                        icon: "cog"
+                        text: "Settings"
+
+                    MDNavigationDrawerDivider:
 
 <LoginScreen>:
     canvas.before:
@@ -469,6 +815,7 @@ kv = '''
                 theme_text_color: 'Custom'
                 text_color: 6/255, 143/255, 236/255, 1
                 on_release: root.go_to_signup()
+                
 '''
 
 Builder.load_string(kv)
