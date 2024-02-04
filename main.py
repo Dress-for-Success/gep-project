@@ -139,6 +139,8 @@ kv = '''
 
             MDGridLayout:
                 cols: 1
+                size_hint_y: None
+                height: dp(35)
                 BoxLayout:
                     orientation: "vertical"
                     spacing: dp(20)
