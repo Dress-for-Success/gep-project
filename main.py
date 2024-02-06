@@ -7,6 +7,7 @@ from kivymd.uix.button import MDFlatButton, MDRectangleFlatButton
 import sqlite3
 import webbrowser
 from kivy.core.window import Window
+from event_creation_form import (EventPlanning)
 
 kv = '''
 <DrawerClickableItem@MDNavigationDrawerItem>
@@ -143,7 +144,7 @@ kv = '''
                 height: dp(35)
                 BoxLayout:
                     orientation: "vertical"
-                    spacing: dp(20)
+                    spacing: dp(30)
                     padding: dp(5)
                     MDLabel:
                         text: 'Create Account'
@@ -522,6 +523,7 @@ kv = '''
                                             MDFlatButton:
                                                 size_hint: None, None
                                                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                                                on_release: app.root.current = 'EventPlanning'
                                                 md_bg_color: 1/255, 6/255, 48/255, 1 
                                                 size_hint_y: None
                                                 height: dp(60)
@@ -1086,10 +1088,12 @@ class LoginApp(MDApp):
         signup_screen = SignupScreen(name="signup")
         success_screen = MainDashboardLB(name="success")
 
+
         sm.add_widget(main_screen)
         sm.add_widget(login_screen)
         sm.add_widget(signup_screen)
         sm.add_widget(success_screen)
+        sm.add_widget(EventPlanning(name='EventPlanning'))
 
         self.success_screen = success_screen
 
