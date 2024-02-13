@@ -191,24 +191,37 @@ kv = '''
             icon_left: 'email'
             font_name: "Roboto-Bold"
 
-        MDTextField:
-            id: password
-            hint_text: "Enter Your Password"
-            icon_left: 'lock-outline'
-            helper_text_mode: 'on_focus'
-            multiline: False
-            helper_text: "Password must be greater than 8 characters"
-            password: True
-            font_name: "Roboto-Bold"
+        MDFloatLayout:
+            MDTextField:
+                id: password
+                hint_text: "Password"
+                password: True
+                helper_text: "Enter your password"
+                helper_text_mode: "on_focus"
+                icon_left: "lock"
+                pos_hint: {"center_x": 0.5, "top": 1}   
 
-        MDTextField:
-            id: password2
-            hint_text: "Re-Enter Your Password"
-            helper_text: "Password does not match"
-            helper_text_mode: 'on_focus'
-            icon_left: 'lock-outline'
-            password: True
-            font_name: "Roboto-Bold"
+            MDIconButton:
+                id: icon1
+                icon: 'eye'
+                pos_hint: {"right": 1, "top": 1}
+                on_release: root.password_change()
+
+        MDFloatLayout:
+            MDTextField:
+                id: password2
+                hint_text: "Re-Enter Password"
+                password: True
+                helper_text: "Enter your password"
+                helper_text_mode: "on_focus"
+                icon_left: "lock"
+                pos_hint: {"center_x": 0.5, "top": 1}   
+
+            MDIconButton:
+                id: icon2
+                icon: 'eye'
+                pos_hint: {"right": 1, "top": 1}
+                on_release: root.password_change2()
 
 
 
@@ -259,6 +272,7 @@ kv = '''
                 font_size:dp(18)
                 theme_text_color: 'Custom'
                 text_color: 6/255, 143/255, 236/255, 1
+                on_release: app.root.current = 'login'
 
 <MainDashboardLB>
 
@@ -720,17 +734,23 @@ kv = '''
             icon_left: "email"
             font_name: "Roboto-Bold"
             pos_hint: {'center_x': 0.5, 'center_y': 0.57}
-        MDTextField:
-            id: password
-            hint_text: "Password"
-            helper_text: "Enter your password"
-            helper_text_mode: "on_focus"
-            icon_left: "lock"
-            size_hint_y: None
-            height: "30dp"
-            width: dp(200)
-            pos_hint: {'center_x': 0.5, 'center_y': 0.46}
-            on_text_validate: app.validate_password()
+        MDFloatLayout:
+            MDTextField:
+                id: password
+                hint_text: "Password"
+                password: True
+                helper_text: "Enter your password"
+                helper_text_mode: "on_focus"
+                icon_left: "lock"
+                pos_hint: {"center_x": 0.5, "top": 1}   
+
+            MDIconButton:
+                id: icon1
+                icon: 'eye'
+                pos_hint: {"right": 1, "top": 1}
+                on_release: root.password_change()
+        MDLabel:
+            text:""
         MDFlatButton:
             text: "Forget password?"
             halign: "right"
@@ -818,7 +838,7 @@ kv = '''
                 font_size:dp(18)
                 theme_text_color: 'Custom'
                 text_color: 6/255, 143/255, 236/255, 1
-                on_release: root.go_to_signup()
+                on_release: app.root.current = 'signup'
                 
 '''
 
@@ -839,6 +859,20 @@ class MainScreen(Screen):
 
 
 class SignupScreen(Screen):
+    def password_change(self):
+        if self.ids.password.password:
+            self.ids.password.password = False
+            self.ids.icon1.icon = 'eye-off'
+        else:
+            self.ids.password.password = True
+            self.ids.icon1.icon = 'eye'
+    def password_change2(self):
+        if self.ids.password2.password:
+            self.ids.password2.password = False
+            self.ids.icon2.icon = 'eye-off'
+        else:
+            self.ids.password2.password = True
+            self.ids.icon2.icon = 'eye'
 
     def show_alert_dialog(self, alert_text):
         if not hasattr(self, 'dialog') or not self.dialog:
@@ -946,7 +980,13 @@ class SignupScreen(Screen):
 
 
 class LoginScreen(Screen):
-
+    def password_change(self):
+        if self.ids.password.password:
+            self.ids.password.password = False
+            self.ids.icon1.icon = 'eye-off'
+        else:
+            self.ids.password.password = True
+            self.ids.icon1.icon = 'eye'
     def change_text3(self):
         # Access the label in another screen and update its text
         login_status_label1 = MDApp.get_running_app().root.get_screen('signup')
