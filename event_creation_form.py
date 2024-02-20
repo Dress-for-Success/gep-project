@@ -1,9 +1,10 @@
 import sqlite3
-
+from kivymd.uix.tab import MDTabsBase
+from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
-from kivymd.uix.textfield import MDTextField
+from kivymd.uix.pickers import MDDatePicker, MDTimePicker
 
 KV = '''
 <EventPlanning>
@@ -12,7 +13,9 @@ KV = '''
         orientation: 'vertical'
         spacing: dp(25)
         padding: dp(5)
-
+        MDIconButton:
+            icon: 'arrow-left'
+            on_release: root.event_list_click()
         ScrollView:
             MDBoxLayout:
                 orientation: 'vertical'
@@ -285,6 +288,74 @@ KV = '''
                             line_color_focus: [1, 1, 1, 1]
                             font_name: "Roboto-Bold"
                             helper_text_mode: "on_focus"
+                MDGridLayout:
+                    cols: 2
+                    padding: dp(10)
+                    MDTextField:
+                        id: date_label
+                        hint_text: "Event Date"
+                        helper_text: 'YYYY-MM-DD'
+                        font_name: "Roboto-Bold"
+                        hint_text_color: 0, 0, 0, 1
+
+                    MDIconButton:
+                        icon: 'calendar-check'
+                        on_press: root.show_date_picker()
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+
+                MDGridLayout:
+                    cols: 2
+                    padding: dp(10)
+                    MDTextField:
+                        id: time_label
+                        hint_text: "Event Time"
+                        helper_text: 'YYYY-MM-DD'
+                        font_name: "Roboto-Bold"
+                        hint_text_color: 0, 0, 0, 1
+
+                    MDIconButton:
+                        icon: 'clock'
+                        on_press: root.show_time_picker1()
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(15)
+
+                    MDLabel:
+                        text: "  Venue Place"
+
+                    MDFloatLayout:
+                        size_hint: 1, None
+                        size: "150dp", "40dp"  
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: 1
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]
+
+                            Color:
+                                rgba: 0, 0, 0, 1
+
+                            Line:
+                                rounded_rectangle: [self.x + 5, self.y + 0.9, self.width - 2, self.height - 0.5, 10, 10, 10, 10]
+                                width: 1 
+
+                        MDTextField:
+                            id: text_input3
+                            size_hint: None, None
+                            size_hint_x: 0.91
+                            multiline: False
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            line_color_normal: [1, 1, 1, 1]
+                            line_color_focus: [1, 1, 1, 1]
+                            font_name: "Roboto-Bold"
+                            helper_text: "Venue"
+                            helper_text_mode: "on_focus"    
 
                 MDBoxLayout:
                     orientation: 'vertical'
@@ -315,15 +386,222 @@ KV = '''
                     MDRaisedButton:
                         text: "Create Event"
                         md_bg_color: 38/255, 40/255, 41/255, 1
-                        on_release: app.root.current = "ForecloseDetails"
+                        on_release: app.root.current = "GuestInvitation"
                         size_hint: 1, None
+<GuestInvitation>
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: dp(35)
+        padding: dp(20)
+        MDIconButton:
+            icon: 'arrow-left'
+            on_release: root.gust_list_click()
+        MDLabel:
+            text: "Guest List Invitation Form"
+            font_size: 50
+            halign: 'center'
+            bold: True
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: dp(15)
 
+            MDLabel:
+                text: "  Full Name"
+
+            MDFloatLayout:
+                size_hint: 1, None
+                size: "150dp", "40dp"  
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x: 1
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10, 10, 10, 10]
+
+                    Color:
+                        rgba: 0, 0, 0, 1
+
+                    Line:
+                        rounded_rectangle: [self.x + 5, self.y + 0.9, self.width - 2, self.height - 0.5, 10, 10, 10, 10]
+                        width: 1 
+
+                MDTextField:
+                    id: text_input3
+                    size_hint: None, None
+                    size_hint_x: 0.91
+                    multiline: False
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    line_color_normal: [1, 1, 1, 1]
+                    line_color_focus: [1, 1, 1, 1]
+                    font_name: "Roboto-Bold"
+                    helper_text: "Full Name"
+                    helper_text_mode: "on_focus"
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: dp(15)
+
+            MDLabel:
+                text: "  Contact Email"
+
+            MDFloatLayout:
+                size_hint: 1, None
+                size: "150dp", "40dp"  
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x: 1
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10, 10, 10, 10]
+
+                    Color:
+                        rgba: 0, 0, 0, 1
+
+                    Line:
+                        rounded_rectangle: [self.x + 5, self.y + 0.9, self.width - 2, self.height - 0.5, 10, 10, 10, 10]
+                        width: 1 
+
+                MDTextField:
+                    id: text_input3
+                    size_hint: None, None
+                    size_hint_x: 0.91
+                    multiline: False
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    line_color_normal: [1, 1, 1, 1]
+                    line_color_focus: [1, 1, 1, 1]
+                    font_name: "Roboto-Bold"
+                    helper_text: "Contact Email"
+                    helper_text_mode: "on_focus"
+        MDBoxLayout:
+            orientation: 'vertical'
+            spacing: dp(15)
+
+            MDLabel:
+                text: "  Phone Number"
+
+            MDFloatLayout:
+                size_hint: 1, None
+                size: "150dp", "40dp"  
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                size_hint_x: 1
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [10, 10, 10, 10]
+
+                    Color:
+                        rgba: 0, 0, 0, 1
+
+                    Line:
+                        rounded_rectangle: [self.x + 5, self.y + 0.9, self.width - 2, self.height - 0.5, 10, 10, 10, 10]
+                        width: 1 
+
+                MDTextField:
+                    id: text_input3
+                    size_hint: None, None
+                    size_hint_x: 0.91
+                    multiline: False
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    line_color_normal: [1, 1, 1, 1]
+                    line_color_focus: [1, 1, 1, 1]
+                    font_name: "Roboto-Bold"
+                    helper_text: "Enter valid phone number"
+                    helper_text_mode: "on_focus"            
+
+
+
+        GridLayout:
+            cols: 2
+            spacing: dp(10)
+            padding: dp(10)            
+            MDRaisedButton:
+                text: "Add"
+                md_bg_color: 38/255, 40/255, 41/255, 1
+                font_name: "Roboto-Bold.ttf"
+                size_hint: 1, None
+                text_color: 1, 1, 1, 1 
+
+            MDRaisedButton:
+                text: "Save&Next"
+                md_bg_color: 38/255, 40/255, 41/255, 1
+                on_release: app.root.current = "FoodItems"
+                font_name: "Roboto-Bold.ttf"
+                size_hint: 1, None
+                text_color: 1, 1, 1, 1 
+
+<FoodItems>:
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: "FOOD ITEMS"
+            elevation: 2
+            left_action_items: [['arrow-left', lambda x: root.on_menu_button_press()]]
+
+        MDTabs:
+            id: tabs
+            Tab :
+                title : 'Veg Items'
+
+            Tab : 
+                title : 'Non Veg Items'
+            Tab : 
+                title : 'Sweet and hot Items'
+            Tab :
+                title : 'Soft Drinks'
+            Tab :
+                title : 'Tiffins'
 '''
 
 Builder.load_string(KV)
 
 
-class EventPlanning(Screen):
+class Tab(MDFloatLayout, MDTabsBase):
     pass
+
+
+class FoodItems(Screen):
+    def on_menu_button_press(self):
+        self.manager.current = "GuestInvitation"
+
+
+class EventPlanning(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def show_date_picker(self):
+        date_picker = MDDatePicker()
+        date_picker.bind(on_save=self.on_date_selected)
+        date_picker.open()
+
+    def on_date_selected(self, instance, value, date_range):
+        date_label = self.ids.date_label
+        date_label.text = f"{value}"
+
+    def show_time_picker1(self):
+        time_picker = MDTimePicker()
+        time_picker.bind(on_save=self.on_time_selected)
+        time_picker.open()
+
+    def on_time_selected(self, instance, time):
+        time_label = self.ids.time_label
+        time_label.text = f"{time.strftime('%H:%M')}"
+
+    def event_list_click(self):
+        self.manager.current = "success"
+
+
+class GuestInvitation(Screen):
+    def gust_list_click(self):
+        self.manager.current = "EventPlanning"
+
 
 

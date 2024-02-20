@@ -7,7 +7,7 @@ from kivymd.uix.button import MDFlatButton, MDRectangleFlatButton
 import sqlite3
 import webbrowser
 from kivy.core.window import Window
-from event_creation_form import (EventPlanning)
+from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
 
 kv = '''
 <DrawerClickableItem@MDNavigationDrawerItem>
@@ -1120,7 +1120,7 @@ class LoginApp(MDApp):
         sm = ScreenManager()
 
         self.theme_cls.theme_style = 'Light'
-        self.theme_cls.primary_palette = "Blue"
+        self.theme_cls.primary_palette = "DeepPurple"
 
         # Add screens
         main_screen = MainScreen(name="main")
@@ -1134,6 +1134,8 @@ class LoginApp(MDApp):
         sm.add_widget(signup_screen)
         sm.add_widget(success_screen)
         sm.add_widget(EventPlanning(name='EventPlanning'))
+        sm.add_widget(GuestInvitation(name='GuestInvitation'))
+        sm.add_widget(FoodItems(name='FoodItems'))
 
         self.success_screen = success_screen
 
