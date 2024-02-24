@@ -751,6 +751,8 @@ kv = '''
                 on_release: root.password_change()
         MDLabel:
             text:""
+        MDLabel:
+            text:""
         MDFlatButton:
             text: "Forget password?"
             halign: "right"

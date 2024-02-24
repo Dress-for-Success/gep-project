@@ -579,7 +579,6 @@ KV = '''
                                 ListItemWithCheckbox:
                                     id: check1
                                     text: "White Rice"
-                                    
                                 ListItemWithCheckbox:
                                     text: "Lemon Rice"
                                 ListItemWithCheckbox:
@@ -591,7 +590,7 @@ KV = '''
                                 ListItemWithCheckbox:
                                     text: "Veg Biryani"
                             MDLabel:
-                                text: "Curry Items: "
+                                text: "Veg Curry Items: "
                                 size_hint_y: None
                                 height: dp(50)
                                 bold: True
@@ -601,27 +600,374 @@ KV = '''
                             MDList:
                                 id: container1
                                 ListItemWithCheckbox:
-                                    id: check1
-                                    text: "White Rice"
+                                    text: "Dal"
                                 ListItemWithCheckbox:
-                                    text: "Lemon Rice"
+                                    text: "Brinjal Curry"
                                 ListItemWithCheckbox:
-                                    text: "Tomato Rice"
+                                    text: "Potato Curry (Aloo Curry)"
                                 ListItemWithCheckbox:
-                                    text: "Brown Rice"
+                                    text: "Potato Fry "
                                 ListItemWithCheckbox:
-                                    text: "Zeera Rice(Jilakarra Rice)"
+                                    text: "Ladies Finger Curry(Bhendakai)"
                                 ListItemWithCheckbox:
-                                    text: "Veg Biryani"
-                                
+                                    text: "Sambar"
+                                ListItemWithCheckbox:
+                                    text: "Rasam"
+                                ListItemWithCheckbox:
+                                    text: " Mustroom Curry "
+                                ListItemWithCheckbox:
+                                    text: "Kajju Panner Curry"
+                                ListItemWithCheckbox:
+                                    text: "DrumStick Curry (Mulakai)"
+                                ListItemWithCheckbox:
+                                    text: "Beams Curry"
+                                ListItemWithCheckbox:
+                                    text: "Peas Curry"
+                                ListItemWithCheckbox:
+                                    text: "Tomato Curry"
+                                ListItemWithCheckbox:
+                                    text: " Cabbage Curry "
+                                ListItemWithCheckbox:
+                                    text: "Cauliflower Curry"
+                                ListItemWithCheckbox:
+                                    text: "avakaya chutney"
+                            
+                            MDLabel:
+                                text: "Veg-FastFood Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Veg Fried Rice"   
+                                ListItemWithCheckbox:
+                                    text: "Veg Noodles" 
+                                ListItemWithCheckbox:
+                                    text: "Veg Manchuria" 
+                                ListItemWithCheckbox:
+                                    text: "Manchuria Rice(Gobi Rice)" 
+                                ListItemWithCheckbox:
+                                    text: "Manchuria Noodles (Gobi Noodles)" 
+          
             Tab : 
                 title : 'Non Veg Items'
+                BoxLayout:
+                    orientation: 'vertical'
+                    
+                    MDScrollView:
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Rice / Biryani Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Chicken Biryani"   
+                                ListItemWithCheckbox:
+                                    text: "Chicken Fried-Biryani " 
+                                ListItemWithCheckbox:
+                                    text: "Chicken Dum-Biryani" 
+                                ListItemWithCheckbox:
+                                    text: "Mutton Biryani" 
+                                ListItemWithCheckbox:
+                                    text: "Mutton Fry-Biryani" 
+                                ListItemWithCheckbox:
+                                    text: "Prawns Biryani" 
+                                ListItemWithCheckbox:
+                                    text: "Normal Rice" 
+                            MDLabel:
+                                text: "Non-veg Curry Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Chicken Fry"   
+                                ListItemWithCheckbox:
+                                    text: "Chicken Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Chicken 65" 
+                                ListItemWithCheckbox:
+                                    text: "Gongura chicken Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Mutton Fry" 
+                                ListItemWithCheckbox:
+                                    text: "Mutton Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Gongura Mutton Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Fish Fry" 
+                                ListItemWithCheckbox:
+                                    text: "Fish Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Prawns Fry" 
+                                ListItemWithCheckbox:
+                                    text: "Prawns Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Crabs curry" 
+                                ListItemWithCheckbox:
+                                    text: "Egg Curry" 
+                                ListItemWithCheckbox:
+                                    text: "Egg omlete" 
+                                ListItemWithCheckbox:
+                                    text: "Egg roll"        
+                                ListItemWithCheckbox:
+                                    text: "Chicken roll" 
+                                ListItemWithCheckbox:
+                                    text: "Chicken Wings" 
+                                ListItemWithCheckbox:
+                                    text: "Chicken Leg-peaces" 
+                                ListItemWithCheckbox:
+                                    text: "Botii Curry" 
+                            MDLabel:
+                                text: "Non-Veg FastFood Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Chicken Fried Rice"   
+                                ListItemWithCheckbox:
+                                    text: "Chicken Noodles" 
+                                ListItemWithCheckbox:
+                                    text: "chilli chicken" 
+                                ListItemWithCheckbox:
+                                    text: "Egg Noodles" 
+                                ListItemWithCheckbox:
+                                    text: "Egg Manchuria" 
+                                ListItemWithCheckbox:
+                                    text: "Manchuria Egg Rice" 
+                                ListItemWithCheckbox:
+                                    text: "Manchuria Egg Noodles"  
+                            MDLabel:
+                                text: "Roti Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Butter non"   
+                                ListItemWithCheckbox:
+                                    text: "Tawa roti" 
+                                ListItemWithCheckbox:
+                                    text: "Rumalli roti" 
+                                ListItemWithCheckbox:
+                                    text: "Makki roti" 
+                                ListItemWithCheckbox:
+                                    text: "Parota" 
+                                ListItemWithCheckbox:
+                                    text: "Sada Roti" 
+                                        
+                            MDLabel:
+                                text: "curry For Roti Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)         
+                            ListItemWithCheckbox:
+                                text: "Egg Keema" 
+                            ListItemWithCheckbox:
+                                text: "Egg Bhurji" 
+                            ListItemWithCheckbox:
+                                text: "Butter chicken" 
+                            ListItemWithCheckbox:
+                                text: "Afgani chicken" 
+                            ListItemWithCheckbox:
+                                text: "Kajju curry" 
+                            ListItemWithCheckbox:
+                                text: "Paneer Butter masala"                 
+                        
             Tab : 
                 title : 'Sweet and hot Items'
+                BoxLayout:
+                    orientation: 'vertical'
+                    
+                    MDScrollView:
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Sweet Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Gulab Jamun"   
+                                ListItemWithCheckbox:
+                                    text: "Gajar ka Halwa (Carrot Halwa)" 
+                                ListItemWithCheckbox:
+                                    text: "Ras Malai (Cottage Cheese Balls in Clotted Cream)" 
+                                ListItemWithCheckbox:
+                                    text: "Besan Ladoo (Roasted Gram Flour Balls)" 
+                                ListItemWithCheckbox:
+                                    text: "Kalakand" 
+                                ListItemWithCheckbox:
+                                    text: "Peanut Chikki (Peanut Brittle)" 
+                                ListItemWithCheckbox:
+                                    text: "Jalebi" 
+                                ListItemWithCheckbox:
+                                    text: "Soan Papdi" 
+                                ListItemWithCheckbox:
+                                    text: "Rice Kheer(Payasam)" 
+                                    
+                            MDLabel:
+                                text: "Hot Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Masala Peanuts"   
+                                ListItemWithCheckbox:
+                                    text: "Samosa" 
+                                ListItemWithCheckbox:
+                                    text: "Onion Pakodi" 
+                                ListItemWithCheckbox:
+                                    text: "Baggi" 
+                                ListItemWithCheckbox:
+                                    text: "Mixter" 
+                                ListItemWithCheckbox:
+                                    text: "Vada Pav" 
+                                ListItemWithCheckbox:
+                                    text: "Panipuri" 
+                                
             Tab :
                 title : 'Soft Drinks'
+                BoxLayout:
+                    orientation: 'vertical'
+                    
+                    MDScrollView:
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Drink Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15) 
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Sprite"   
+                                ListItemWithCheckbox:
+                                    text: "Thumps up" 
+                                ListItemWithCheckbox:
+                                    text: "Fanta" 
+                                ListItemWithCheckbox:
+                                    text: "Limka" 
+                                ListItemWithCheckbox:
+                                    text: "coco-cola" 
+                                ListItemWithCheckbox:
+                                    text: "Mirinda" 
+                                ListItemWithCheckbox:
+                                    text: "Mazza" 
+                                ListItemWithCheckbox:
+                                    text: "Apple Fizz" 
+                                ListItemWithCheckbox:
+                                    text: "pulpi-orange" 
+                                ListItemWithCheckbox:
+                                    text: "Mountaine Dew" 
+                                ListItemWithCheckbox:
+                                    text: "Red bull" 
+                                ListItemWithCheckbox:
+                                    text: "Artos"                    
+                                
             Tab :
                 title : 'Tiffins'
+                BoxLayout:
+                    orientation: 'vertical'
+                    
+                    MDScrollView:
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Tiffin Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    text: "Dosa"   
+                                ListItemWithCheckbox:
+                                    text: "Masala Dosa" 
+                                ListItemWithCheckbox:
+                                    text: "onion Dosa" 
+                                ListItemWithCheckbox:
+                                    text: "Egg Dosa" 
+                                ListItemWithCheckbox:
+                                    text: "Idly" 
+                                ListItemWithCheckbox:
+                                    text: "Ghee Idly" 
+                                ListItemWithCheckbox:
+                                    text: "sambar Idly" 
+                                ListItemWithCheckbox:
+                                    text: "vada" 
+                                ListItemWithCheckbox:
+                                    text: "Mysore Bonda" 
+                                ListItemWithCheckbox:
+                                    text: "Upma" 
+                                ListItemWithCheckbox:
+                                    text: "chapati" 
+                                ListItemWithCheckbox:
+                                    text: "puri" 
+                                ListItemWithCheckbox:
+                                    text: "Porota" 
+                            
+                            MDLabel:
+                                text: "Chatny Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)        
+                            MDList:
+                                ListItemWithCheckbox:
+                                    text: "Palli chutney" 
+                                ListItemWithCheckbox:
+                                    text: "red chutney"        
+                                ListItemWithCheckbox:
+                                    text: "Green Chutney" 
+                                ListItemWithCheckbox:
+                                    text: "Allu kurma curry" 
+                                ListItemWithCheckbox:
+                                    text: "Puri curry" 
+                                
                 
 <ListItemWithCheckbox>:
 
