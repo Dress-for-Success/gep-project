@@ -5,6 +5,13 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
 from kivymd.uix.pickers import MDDatePicker, MDTimePicker
+from kivy.properties import StringProperty
+from kivy.lang import Builder
+from kivymd.app import MDApp
+from kivymd.uix.list import IRightBodyTouch, OneLineAvatarIconListItem
+from kivymd.uix.selectioncontrol import MDCheckbox
+from kivymd.icon_definitions import md_icons
+
 
 KV = '''
 <EventPlanning>
@@ -538,6 +545,7 @@ KV = '''
                 text_color: 1, 1, 1, 1 
 
 <FoodItems>:
+
     MDBoxLayout:
         orientation: "vertical"
 
@@ -550,7 +558,62 @@ KV = '''
             id: tabs
             Tab :
                 title : 'Veg Items'
-
+                BoxLayout:
+                    orientation: 'vertical'
+                    
+                    MDScrollView:
+                        BoxLayout:
+                            orientation: 'vertical'
+                            size_hint_y: None
+                            height: self.minimum_height
+                            MDLabel:
+                                text: "Rice / Biryani Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)
+                            
+                            MDList:
+                                id: container
+                                ListItemWithCheckbox:
+                                    id: check1
+                                    text: "White Rice"
+                                    
+                                ListItemWithCheckbox:
+                                    text: "Lemon Rice"
+                                ListItemWithCheckbox:
+                                    text: "Tomato Rice"
+                                ListItemWithCheckbox:
+                                    text: "Brown Rice"
+                                ListItemWithCheckbox:
+                                    text: "Zeera Rice(Jilakarra Rice)"
+                                ListItemWithCheckbox:
+                                    text: "Veg Biryani"
+                            MDLabel:
+                                text: "Curry Items: "
+                                size_hint_y: None
+                                height: dp(50)
+                                bold: True
+                                haligh: 'center'
+                                padding: dp(15)
+                            
+                            MDList:
+                                id: container1
+                                ListItemWithCheckbox:
+                                    id: check1
+                                    text: "White Rice"
+                                ListItemWithCheckbox:
+                                    text: "Lemon Rice"
+                                ListItemWithCheckbox:
+                                    text: "Tomato Rice"
+                                ListItemWithCheckbox:
+                                    text: "Brown Rice"
+                                ListItemWithCheckbox:
+                                    text: "Zeera Rice(Jilakarra Rice)"
+                                ListItemWithCheckbox:
+                                    text: "Veg Biryani"
+                                
             Tab : 
                 title : 'Non Veg Items'
             Tab : 
@@ -559,6 +622,10 @@ KV = '''
                 title : 'Soft Drinks'
             Tab :
                 title : 'Tiffins'
+                
+<ListItemWithCheckbox>:
+
+    RightCheckbox:
 '''
 
 Builder.load_string(KV)
@@ -566,9 +633,19 @@ Builder.load_string(KV)
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
+class ListItemWithCheckbox(OneLineAvatarIconListItem):
+    '''Custom list item.'''
 
+    icon = StringProperty("android")
+
+
+class RightCheckbox(IRightBodyTouch, MDCheckbox):
+    '''Custom right container.'''
 
 class FoodItems(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        print(self.ids.check1)
     def on_menu_button_press(self):
         self.manager.current = "GuestInvitation"
 
