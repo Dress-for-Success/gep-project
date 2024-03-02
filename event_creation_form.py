@@ -1,4 +1,6 @@
 import sqlite3
+
+from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.lang import Builder
@@ -575,20 +577,128 @@ KV = '''
                                 padding: dp(15)
                             
                             MDList:
-                                id: container
-                                ListItemWithCheckbox:
-                                    id: check1
-                                    text: "White Rice"
-                                ListItemWithCheckbox:
+                                id: container1
+                                TwoLineAvatarIconListItem:
+                                    text: "One-line "
+                                    secondary_text: "Price"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        icon: "checkbox-blank-outline"
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                        MDTextField:
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"                      
+                               
+                                TwoLineAvatarIconListItem:
                                     text: "Lemon Rice"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Price"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        icon: "checkbox-blank-outline"
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                        MDTextField:
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"  
+                                            
+                                TwoLineAvatarIconListItem:
                                     text: "Tomato Rice"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Price"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        icon: "checkbox-blank-outline"                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                        MDTextField:
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"
+                                            
+                                TwoLineAvatarIconListItem:
                                     text: "Brown Rice"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Price"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        icon: "checkbox-blank-outline"
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                        MDTextField:
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"
+                                    
+                                TwoLineAvatarIconListItem:
                                     text: "Zeera Rice(Jilakarra Rice)"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Price"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        icon: "checkbox-blank-outline"
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                        MDTextField:
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"
+                                    
+                                TwoLineAvatarIconListItem:
                                     text: "Veg Biryani"
+                                    secondary_text: "Price"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        icon: "checkbox-blank-outline"
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                        MDTextField:
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"
                             MDLabel:
                                 text: "Veg Curry Items: "
                                 size_hint_y: None
@@ -988,10 +1098,12 @@ class ListItemWithCheckbox(OneLineAvatarIconListItem):
 class RightCheckbox(IRightBodyTouch, MDCheckbox):
     '''Custom right container.'''
 
+class YourContainer(IRightBodyTouch, MDBoxLayout):
+    adaptive_width = True
+
 class FoodItems(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        print(self.ids.check1)
     def on_menu_button_press(self):
         self.manager.current = "GuestInvitation"
 
