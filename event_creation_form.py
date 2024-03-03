@@ -586,18 +586,23 @@ KV = '''
                                         self.ids._right_container.x = container.width + 200
                                 
                                     IconLeftWidget:
+                                        id: check1
                                         icon: "checkbox-blank-outline"
+                                        on_release: root.check1()
                                 
                                     YourContainer:
                                         id: container
                                 
                                         MDIconButton:
                                             icon: "minus"
+                                            on_release: root.minus1()
                                         MDTextField:
+                                            id: text1
                                             size_hint: None, None
                                             size: "27dp", "27dp"
                                         MDIconButton:
-                                            icon: "plus"                      
+                                            icon: "plus"   
+                                            on_release: root.plus1()                   
                                
                                 TwoLineAvatarIconListItem:
                                     text: "Lemon Rice"
@@ -607,18 +612,23 @@ KV = '''
                                         self.ids._right_container.x = container.width + 200
                                 
                                     IconLeftWidget:
+                                        id: check2
                                         icon: "checkbox-blank-outline"
+                                        on_release: root.check2()
                                 
                                     YourContainer:
                                         id: container
                                 
                                         MDIconButton:
                                             icon: "minus"
+                                            on_release: root.minus2()
                                         MDTextField:
+                                            id: text2
                                             size_hint: None, None
                                             size: "27dp", "27dp"
                                         MDIconButton:
-                                            icon: "plus"  
+                                            icon: "plus"   
+                                            on_release: root.plus2()
                                             
                                 TwoLineAvatarIconListItem:
                                     text: "Tomato Rice"
@@ -628,17 +638,23 @@ KV = '''
                                         self.ids._right_container.x = container.width + 200
                                 
                                     IconLeftWidget:
-                                        icon: "checkbox-blank-outline"                                
+                                        id: check3
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check3()
+                                
                                     YourContainer:
                                         id: container
                                 
                                         MDIconButton:
                                             icon: "minus"
+                                            on_release: root.minus3()
                                         MDTextField:
+                                            id: text3
                                             size_hint: None, None
                                             size: "27dp", "27dp"
                                         MDIconButton:
-                                            icon: "plus"
+                                            icon: "plus"   
+                                            on_release: root.plus3()
                                             
                                 TwoLineAvatarIconListItem:
                                     text: "Brown Rice"
@@ -648,17 +664,23 @@ KV = '''
                                         self.ids._right_container.x = container.width + 200
                                 
                                     IconLeftWidget:
+                                        id: check4
                                         icon: "checkbox-blank-outline"
+                                        on_release: root.check4()
+                                
                                     YourContainer:
                                         id: container
                                 
                                         MDIconButton:
                                             icon: "minus"
+                                            on_release: root.minus4()
                                         MDTextField:
+                                            id: text4
                                             size_hint: None, None
                                             size: "27dp", "27dp"
                                         MDIconButton:
-                                            icon: "plus"
+                                            icon: "plus"   
+                                            on_release: root.plus4()
                                     
                                 TwoLineAvatarIconListItem:
                                     text: "Zeera Rice(Jilakarra Rice)"
@@ -668,17 +690,23 @@ KV = '''
                                         self.ids._right_container.x = container.width + 200
                                 
                                     IconLeftWidget:
+                                        id: check5
                                         icon: "checkbox-blank-outline"
+                                        on_release: root.check5()
+                                
                                     YourContainer:
                                         id: container
                                 
                                         MDIconButton:
                                             icon: "minus"
+                                            on_release: root.minus5()
                                         MDTextField:
+                                            id: text5
                                             size_hint: None, None
                                             size: "27dp", "27dp"
                                         MDIconButton:
-                                            icon: "plus"
+                                            icon: "plus"   
+                                            on_release: root.plus5()
                                     
                                 TwoLineAvatarIconListItem:
                                     text: "Veg Biryani"
@@ -688,17 +716,23 @@ KV = '''
                                         self.ids._right_container.x = container.width + 200
                                 
                                     IconLeftWidget:
+                                        id: check6
                                         icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
                                     YourContainer:
                                         id: container
                                 
                                         MDIconButton:
                                             icon: "minus"
+                                            on_release: root.minus6()
                                         MDTextField:
+                                            id: text6
                                             size_hint: None, None
                                             size: "27dp", "27dp"
                                         MDIconButton:
-                                            icon: "plus"
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                             MDLabel:
                                 text: "Veg Curry Items: "
                                 size_hint_y: None
@@ -1104,6 +1138,90 @@ class YourContainer(IRightBodyTouch, MDBoxLayout):
 class FoodItems(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.ids.text1.text = '0'
+        self.ids.text2.text = '0'
+        self.ids.text3.text = '0'
+        self.ids.text4.text = '0'
+        self.ids.text5.text = '0'
+        self.ids.text6.text = '0'
+
+    def minus1(self):
+        if self.ids.text1.text == '0':
+            self.ids.text1.text = '0'
+        else:
+            self.ids.text1.text = str(int(self.ids.text1.text) -1)
+    def plus1(self):
+        self.ids.text1.text = str(int(self.ids.text1.text) +1)
+    def check1(self):
+        if self.ids.check1.icon == "checkbox-blank-outline":
+            self.ids.check1.icon = 'checkbox-marked'
+        else:
+            self.ids.check1.icon = "checkbox-blank-outline"
+
+    def minus2(self):
+        if self.ids.text2.text == '0':
+            self.ids.text2.text = '0'
+        else:
+            self.ids.text2.text = str(int(self.ids.text2.text) -1)
+    def plus2(self):
+        self.ids.text2.text = str(int(self.ids.text2.text) +1)
+    def check2(self):
+        if self.ids.check2.icon == "checkbox-blank-outline":
+            self.ids.check2.icon = 'checkbox-marked'
+        else:
+            self.ids.check2.icon = "checkbox-blank-outline"
+
+    def minus3(self):
+        if self.ids.text3.text == '0':
+            self.ids.text3.text = '0'
+        else:
+            self.ids.text3.text = str(int(self.ids.text3.text) -1)
+    def plus3(self):
+        self.ids.text3.text = str(int(self.ids.text3.text) +1)
+    def check3(self):
+        if self.ids.check3.icon == "checkbox-blank-outline":
+            self.ids.check3.icon = 'checkbox-marked'
+        else:
+            self.ids.check3.icon = "checkbox-blank-outline"
+
+    def minus4(self):
+        if self.ids.text4.text == '0':
+            self.ids.text4.text = '0'
+        else:
+            self.ids.text4.text = str(int(self.ids.text4.text) -1)
+    def plus4(self):
+        self.ids.text4.text = str(int(self.ids.text4.text) +1)
+    def check4(self):
+        if self.ids.check4.icon == "checkbox-blank-outline":
+            self.ids.check4.icon = 'checkbox-marked'
+        else:
+            self.ids.check4.icon = "checkbox-blank-outline"
+
+    def minus5(self):
+        if self.ids.text5.text == '0':
+            self.ids.text5.text = '0'
+        else:
+            self.ids.text5.text = str(int(self.ids.text5.text) -1)
+    def plus5(self):
+        self.ids.text5.text = str(int(self.ids.text5.text) +1)
+    def check5(self):
+        if self.ids.check5.icon == "checkbox-blank-outline":
+            self.ids.check5.icon = 'checkbox-marked'
+        else:
+            self.ids.check5.icon = "checkbox-blank-outline"
+
+    def minus6(self):
+        if self.ids.text6.text == '0':
+            self.ids.text6.text = '0'
+        else:
+            self.ids.text6.text = str(int(self.ids.text6.text) -1)
+    def plus6(self):
+        self.ids.text6.text = str(int(self.ids.text6.text) +1)
+    def check6(self):
+        if self.ids.check6.icon == "checkbox-blank-outline":
+            self.ids.check6.icon = 'checkbox-marked'
+        else:
+            self.ids.check6.icon = "checkbox-blank-outline"
     def on_menu_button_press(self):
         self.manager.current = "GuestInvitation"
 
