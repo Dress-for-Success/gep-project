@@ -579,8 +579,9 @@ KV = '''
                             MDList:
                                 id: container1
                                 TwoLineAvatarIconListItem:
-                                    text: "One-line "
-                                    secondary_text: "Price"
+                                    id: list1
+                                    text: "White Rice "
+                                    secondary_text: "Total Item Price : 30"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -605,8 +606,9 @@ KV = '''
                                             on_release: root.plus1()                   
                                
                                 TwoLineAvatarIconListItem:
+                                    id: list2
                                     text: "Lemon Rice"
-                                    secondary_text: "Price"
+                                    secondary_text: "Total Item Price :60"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -631,8 +633,9 @@ KV = '''
                                             on_release: root.plus2()
                                             
                                 TwoLineAvatarIconListItem:
+                                    id: list3
                                     text: "Tomato Rice"
-                                    secondary_text: "Price"
+                                    secondary_text: "Total Item Price :60"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -657,8 +660,9 @@ KV = '''
                                             on_release: root.plus3()
                                             
                                 TwoLineAvatarIconListItem:
+                                    id: list4
                                     text: "Brown Rice"
-                                    secondary_text: "Price"
+                                    secondary_text: "Total Item Price :60"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -683,8 +687,9 @@ KV = '''
                                             on_release: root.plus4()
                                     
                                 TwoLineAvatarIconListItem:
+                                    id: list5
                                     text: "Zeera Rice(Jilakarra Rice)"
-                                    secondary_text: "Price"
+                                    secondary_text: "Total Item Price :60"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -709,8 +714,9 @@ KV = '''
                                             on_release: root.plus5()
                                     
                                 TwoLineAvatarIconListItem:
+                                    id: list6
                                     text: "Veg Biryani"
-                                    secondary_text: "Price"
+                                    secondary_text: "Total Item Price : 100"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -1144,14 +1150,23 @@ class FoodItems(Screen):
         self.ids.text4.text = '0'
         self.ids.text5.text = '0'
         self.ids.text6.text = '0'
+        self.white_rice = 30
+        self.tomato_rice = 60
+        self.lemon_rice = 60
+        self.brown_rice = 60
+        self.zeera_rice = 60
+        self.veg_biryani = 100
 
     def minus1(self):
         if self.ids.text1.text == '0':
             self.ids.text1.text = '0'
         else:
             self.ids.text1.text = str(int(self.ids.text1.text) -1)
+            self.ids.list1.secondary_text = 'Total Item Price : ' + str(self.white_rice * int(self.ids.text1.text))
     def plus1(self):
         self.ids.text1.text = str(int(self.ids.text1.text) +1)
+        self.ids.list1.secondary_text = 'Total Item Price : ' + str(self.white_rice * int(self.ids.text1.text))
+
     def check1(self):
         if self.ids.check1.icon == "checkbox-blank-outline":
             self.ids.check1.icon = 'checkbox-marked'
@@ -1163,8 +1178,11 @@ class FoodItems(Screen):
             self.ids.text2.text = '0'
         else:
             self.ids.text2.text = str(int(self.ids.text2.text) -1)
+            self.ids.list2.secondary_text = 'Total Item Price : ' + str(self.lemon_rice * int(self.ids.text2.text))
     def plus2(self):
         self.ids.text2.text = str(int(self.ids.text2.text) +1)
+        self.ids.list2.secondary_text = 'Total Item Price : ' + str(self.lemon_rice * int(self.ids.text2.text))
+
     def check2(self):
         if self.ids.check2.icon == "checkbox-blank-outline":
             self.ids.check2.icon = 'checkbox-marked'
@@ -1176,8 +1194,10 @@ class FoodItems(Screen):
             self.ids.text3.text = '0'
         else:
             self.ids.text3.text = str(int(self.ids.text3.text) -1)
+            self.ids.list3.secondary_text = 'Total Item Price : ' + str(self.tomato_rice * int(self.ids.text3.text))
     def plus3(self):
         self.ids.text3.text = str(int(self.ids.text3.text) +1)
+        self.ids.list3.secondary_text = 'Total Item Price : ' + str(self.tomato_rice * int(self.ids.text3.text))
     def check3(self):
         if self.ids.check3.icon == "checkbox-blank-outline":
             self.ids.check3.icon = 'checkbox-marked'
@@ -1189,8 +1209,10 @@ class FoodItems(Screen):
             self.ids.text4.text = '0'
         else:
             self.ids.text4.text = str(int(self.ids.text4.text) -1)
+            self.ids.list4.secondary_text = 'Total Item Price : ' + str(self.brown_rice * int(self.ids.text4.text))
     def plus4(self):
         self.ids.text4.text = str(int(self.ids.text4.text) +1)
+        self.ids.list4.secondary_text = 'Total Item Price : ' + str(self.brown_rice * int(self.ids.text4.text))
     def check4(self):
         if self.ids.check4.icon == "checkbox-blank-outline":
             self.ids.check4.icon = 'checkbox-marked'
@@ -1202,8 +1224,10 @@ class FoodItems(Screen):
             self.ids.text5.text = '0'
         else:
             self.ids.text5.text = str(int(self.ids.text5.text) -1)
+            self.ids.list5.secondary_text = 'Total Item Price : ' + str(self.zeera_rice * int(self.ids.text5.text))
     def plus5(self):
         self.ids.text5.text = str(int(self.ids.text5.text) +1)
+        self.ids.list5.secondary_text = 'Total Item Price : ' + str(self.zeera_rice * int(self.ids.text5.text))
     def check5(self):
         if self.ids.check5.icon == "checkbox-blank-outline":
             self.ids.check5.icon = 'checkbox-marked'
@@ -1215,8 +1239,10 @@ class FoodItems(Screen):
             self.ids.text6.text = '0'
         else:
             self.ids.text6.text = str(int(self.ids.text6.text) -1)
+            self.ids.list6.secondary_text = 'Total Item Price : ' + str(self.veg_biryani * int(self.ids.text6.text))
     def plus6(self):
         self.ids.text6.text = str(int(self.ids.text6.text) +1)
+        self.ids.list6.secondary_text = 'Total Item Price : ' + str(self.veg_biryani * int(self.ids.text6.text))
     def check6(self):
         if self.ids.check6.icon == "checkbox-blank-outline":
             self.ids.check6.icon = 'checkbox-marked'
