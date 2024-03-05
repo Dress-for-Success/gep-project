@@ -578,10 +578,11 @@ KV = '''
                             
                             MDList:
                                 id: container1
-                                TwoLineAvatarIconListItem:
+                                ThreeLineAvatarIconListItem:
                                     id: list1
                                     text: "White Rice "
-                                    secondary_text: "Total Item Price : 30"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 30/-"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -605,10 +606,11 @@ KV = '''
                                             icon: "plus"   
                                             on_release: root.plus1()                   
                                
-                                TwoLineAvatarIconListItem:
+                                ThreeLineAvatarIconListItem:
                                     id: list2
                                     text: "Lemon Rice"
-                                    secondary_text: "Total Item Price :60"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 60/-"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -632,10 +634,11 @@ KV = '''
                                             icon: "plus"   
                                             on_release: root.plus2()
                                             
-                                TwoLineAvatarIconListItem:
+                                ThreeLineAvatarIconListItem:
                                     id: list3
                                     text: "Tomato Rice"
-                                    secondary_text: "Total Item Price :60"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 60/-"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -659,10 +662,11 @@ KV = '''
                                             icon: "plus"   
                                             on_release: root.plus3()
                                             
-                                TwoLineAvatarIconListItem:
+                                ThreeLineAvatarIconListItem:
                                     id: list4
                                     text: "Brown Rice"
-                                    secondary_text: "Total Item Price :60"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 60/-"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -686,10 +690,11 @@ KV = '''
                                             icon: "plus"   
                                             on_release: root.plus4()
                                     
-                                TwoLineAvatarIconListItem:
+                                ThreeLineAvatarIconListItem:
                                     id: list5
                                     text: "Zeera Rice(Jilakarra Rice)"
-                                    secondary_text: "Total Item Price :60"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 60/-"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
@@ -713,10 +718,11 @@ KV = '''
                                             icon: "plus"   
                                             on_release: root.plus5()
                                     
-                                TwoLineAvatarIconListItem:
+                                ThreeLineAvatarIconListItem:
                                     id: list6
                                     text: "Veg Biryani"
-                                    secondary_text: "Total Item Price : 100"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
                                     on_size:
                                         self.ids._right_container.width = container.width + 200
                                         self.ids._right_container.x = container.width + 200
