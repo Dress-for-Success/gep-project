@@ -754,39 +754,439 @@ KV = '''
                                 padding: dp(15)
                             
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
+                                id: container2
+                                ThreeLineAvatarIconListItem:
+                                    id: list7
                                     text: "Dal"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list8
                                     text: "Brinjal Curry"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list9
                                     text: "Potato Curry (Aloo Curry)"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list10
                                     text: "Potato Fry "
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list11
                                     text: "Ladies Finger Curry(Bhendakai)"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list12
                                     text: "Sambar"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list13
                                     text: "Rasam"
-                                ListItemWithCheckbox:
-                                    text: " Mustroom Curry "
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list14
+                                    text: "Mustroom Curry "
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list15
                                     text: "Kajju Panner Curry"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list16
                                     text: "DrumStick Curry (Mulakai)"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list17
                                     text: "Beams Curry"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list18
                                     text: "Peas Curry"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list19
                                     text: "Tomato Curry"
-                                ListItemWithCheckbox:
-                                    text: " Cabbage Curry "
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list20
+                                    text: "Cabbage Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list21
                                     text: "Cauliflower Curry"
-                                ListItemWithCheckbox:
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list22
                                     text: "avakaya chutney"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                             
                             MDLabel:
                                 text: "Veg-FastFood Items: "
@@ -796,17 +1196,142 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Veg Fried Rice"   
-                                ListItemWithCheckbox:
-                                    text: "Veg Noodles" 
-                                ListItemWithCheckbox:
-                                    text: "Veg Manchuria" 
-                                ListItemWithCheckbox:
-                                    text: "Manchuria Rice(Gobi Rice)" 
-                                ListItemWithCheckbox:
-                                    text: "Manchuria Noodles (Gobi Noodles)" 
+                                id: container3
+                                ThreeLineAvatarIconListItem:
+                                    id: list23
+                                    text: "Veg Fried Rice"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list24
+                                    text: "Veg Noodles"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list25
+                                    text: "Veg Manchuria"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list26
+                                    text: "Manchuria Rice(Gobi Rice)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list27
+                                    text: "Manchuria Noodles (Gobi Noodles)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
           
             Tab : 
                 title : 'Non Veg Items'
@@ -826,21 +1351,196 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Chicken Biryani"   
-                                ListItemWithCheckbox:
-                                    text: "Chicken Fried-Biryani " 
-                                ListItemWithCheckbox:
-                                    text: "Chicken Dum-Biryani" 
-                                ListItemWithCheckbox:
-                                    text: "Mutton Biryani" 
-                                ListItemWithCheckbox:
-                                    text: "Mutton Fry-Biryani" 
-                                ListItemWithCheckbox:
-                                    text: "Prawns Biryani" 
-                                ListItemWithCheckbox:
-                                    text: "Normal Rice" 
+                                id: container4
+                                ThreeLineAvatarIconListItem:
+                                    id: list28
+                                    text: "Chicken Biryani"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list29
+                                    text: "Chicken Fried-Biryani"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list30
+                                    text: "Chicken Dum-Biryani"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list31
+                                    text: "Mutton Biryani"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list32
+                                    text: "Mutton Fry-Biryani"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list33
+                                    text: "Prawns Biryani"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list34
+                                    text: "Normal Rice"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                             MDLabel:
                                 text: "Non-veg Curry Items: "
                                 size_hint_y: None
@@ -849,45 +1549,520 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Chicken Fry"   
-                                ListItemWithCheckbox:
-                                    text: "Chicken Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Chicken 65" 
-                                ListItemWithCheckbox:
-                                    text: "Gongura chicken Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Mutton Fry" 
-                                ListItemWithCheckbox:
-                                    text: "Mutton Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Gongura Mutton Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Fish Fry" 
-                                ListItemWithCheckbox:
-                                    text: "Fish Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Prawns Fry" 
-                                ListItemWithCheckbox:
-                                    text: "Prawns Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Crabs curry" 
-                                ListItemWithCheckbox:
-                                    text: "Egg Curry" 
-                                ListItemWithCheckbox:
-                                    text: "Egg omlete" 
-                                ListItemWithCheckbox:
-                                    text: "Egg roll"        
-                                ListItemWithCheckbox:
-                                    text: "Chicken roll" 
-                                ListItemWithCheckbox:
-                                    text: "Chicken Wings" 
-                                ListItemWithCheckbox:
-                                    text: "Chicken Leg-peaces" 
-                                ListItemWithCheckbox:
-                                    text: "Botii Curry" 
+                                id: container5
+                                ThreeLineAvatarIconListItem:
+                                    id: list35
+                                    text: "Chicken Fry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list36
+                                    text: "Chicken Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list37
+                                    text: "Chicken 65"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list38
+                                    text: "Gongura chicken Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list39
+                                    text: "Mutton Fry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list40
+                                    text: "Mutton Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list41
+                                    text: "Gongura Mutton Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list42
+                                    text: "Fish Fry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list43
+                                    text: "Fish Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list44
+                                    text: "Prawns Fry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list45
+                                    text: "Prawns Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list46
+                                    text: "Crabs curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list47
+                                    text: "Egg Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list48
+                                    text: "Egg omlete"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list49
+                                    text: "Egg roll"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list50
+                                    text: "Chicken roll"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list51
+                                    text: "Chicken Wings"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list52
+                                    text: "Chicken Leg-peaces"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list53
+                                    text: "Botii Curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                             MDLabel:
                                 text: "Non-Veg FastFood Items: "
                                 size_hint_y: None
@@ -896,21 +2071,196 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Chicken Fried Rice"   
-                                ListItemWithCheckbox:
-                                    text: "Chicken Noodles" 
-                                ListItemWithCheckbox:
-                                    text: "chilli chicken" 
-                                ListItemWithCheckbox:
-                                    text: "Egg Noodles" 
-                                ListItemWithCheckbox:
-                                    text: "Egg Manchuria" 
-                                ListItemWithCheckbox:
-                                    text: "Manchuria Egg Rice" 
-                                ListItemWithCheckbox:
-                                    text: "Manchuria Egg Noodles"  
+                                id: container6
+                                ThreeLineAvatarIconListItem:
+                                    id: list54
+                                    text: "Chicken Fried Rice"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list55
+                                    text: "Chicken Noodles"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list56
+                                    text: "chilli chicken"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list57
+                                    text: "Egg Noodles"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list58
+                                    text: "Egg Manchuria"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list59
+                                    text: "Manchuria Egg Rice"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list60
+                                    text: "Manchuria Egg Noodles"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()  
                             MDLabel:
                                 text: "Roti Items: "
                                 size_hint_y: None
@@ -919,19 +2269,169 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Butter non"   
-                                ListItemWithCheckbox:
-                                    text: "Tawa roti" 
-                                ListItemWithCheckbox:
-                                    text: "Rumalli roti" 
-                                ListItemWithCheckbox:
-                                    text: "Makki roti" 
-                                ListItemWithCheckbox:
-                                    text: "Parota" 
-                                ListItemWithCheckbox:
-                                    text: "Sada Roti" 
+                                id: container7
+                                ThreeLineAvatarIconListItem:
+                                    id: list61
+                                    text: "Butter non"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list62
+                                    text: "Tawa roti"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list63
+                                    text: "Rumalli roti"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list64
+                                    text: "Makki roti"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list65
+                                    text: "Parota"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list66
+                                    text: "Sada Roti"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                                         
                             MDLabel:
                                 text: "curry For Roti Items: "
@@ -939,20 +2439,170 @@ KV = '''
                                 height: dp(50)
                                 bold: True
                                 haligh: 'center'
-                                padding: dp(15)         
-                            ListItemWithCheckbox:
-                                text: "Egg Keema" 
-                            ListItemWithCheckbox:
-                                text: "Egg Bhurji" 
-                            ListItemWithCheckbox:
-                                text: "Butter chicken" 
-                            ListItemWithCheckbox:
-                                text: "Afgani chicken" 
-                            ListItemWithCheckbox:
-                                text: "Kajju curry" 
-                            ListItemWithCheckbox:
-                                text: "Paneer Butter masala"                 
-                        
+                                padding: dp(15)
+                            ThreeLineAvatarIconListItem:
+                                id: list67
+                                text: "Egg Keema"
+                                secondary_text: "Total Item Price : 0"
+                                tertiary_text: "For Each Person 100/-"
+                                on_size:
+                                    self.ids._right_container.width = container.width + 200
+                                    self.ids._right_container.x = container.width + 200
+                            
+                                IconLeftWidget:
+                                    id: check6
+                                    icon: "checkbox-blank-outline"
+                                    on_release: root.check6()
+                            
+                                YourContainer:
+                                    id: container
+                            
+                                    MDIconButton:
+                                        icon: "minus"
+                                        on_release: root.minus6()
+                                    MDTextField:
+                                        id: text6
+                                        size_hint: None, None
+                                        size: "27dp", "27dp"
+                                    MDIconButton:
+                                        icon: "plus"   
+                                        on_release: root.plus6()
+                            ThreeLineAvatarIconListItem:
+                                id: list68
+                                text: "Egg Bhurji"
+                                secondary_text: "Total Item Price : 0"
+                                tertiary_text: "For Each Person 100/-"
+                                on_size:
+                                    self.ids._right_container.width = container.width + 200
+                                    self.ids._right_container.x = container.width + 200
+                            
+                                IconLeftWidget:
+                                    id: check6
+                                    icon: "checkbox-blank-outline"
+                                    on_release: root.check6()
+                            
+                                YourContainer:
+                                    id: container
+                            
+                                    MDIconButton:
+                                        icon: "minus"
+                                        on_release: root.minus6()
+                                    MDTextField:
+                                        id: text6
+                                        size_hint: None, None
+                                        size: "27dp", "27dp"
+                                    MDIconButton:
+                                        icon: "plus"   
+                                        on_release: root.plus6()
+                            ThreeLineAvatarIconListItem:
+                                id: list69
+                                text: "Butter chicken"
+                                secondary_text: "Total Item Price : 0"
+                                tertiary_text: "For Each Person 100/-"
+                                on_size:
+                                    self.ids._right_container.width = container.width + 200
+                                    self.ids._right_container.x = container.width + 200
+                            
+                                IconLeftWidget:
+                                    id: check6
+                                    icon: "checkbox-blank-outline"
+                                    on_release: root.check6()
+                            
+                                YourContainer:
+                                    id: container
+                            
+                                    MDIconButton:
+                                        icon: "minus"
+                                        on_release: root.minus6()
+                                    MDTextField:
+                                        id: text6
+                                        size_hint: None, None
+                                        size: "27dp", "27dp"
+                                    MDIconButton:
+                                        icon: "plus"   
+                                        on_release: root.plus6()
+                            ThreeLineAvatarIconListItem:
+                                id: list70
+                                text: "Afgani chicken"
+                                secondary_text: "Total Item Price : 0"
+                                tertiary_text: "For Each Person 100/-"
+                                on_size:
+                                    self.ids._right_container.width = container.width + 200
+                                    self.ids._right_container.x = container.width + 200
+                            
+                                IconLeftWidget:
+                                    id: check6
+                                    icon: "checkbox-blank-outline"
+                                    on_release: root.check6()
+                            
+                                YourContainer:
+                                    id: container
+                            
+                                    MDIconButton:
+                                        icon: "minus"
+                                        on_release: root.minus6()
+                                    MDTextField:
+                                        id: text6
+                                        size_hint: None, None
+                                        size: "27dp", "27dp"
+                                    MDIconButton:
+                                        icon: "plus"   
+                                        on_release: root.plus6()
+                            ThreeLineAvatarIconListItem:
+                                id: list71
+                                text: "Kajju curry"
+                                secondary_text: "Total Item Price : 0"
+                                tertiary_text: "For Each Person 100/-"
+                                on_size:
+                                    self.ids._right_container.width = container.width + 200
+                                    self.ids._right_container.x = container.width + 200
+                            
+                                IconLeftWidget:
+                                    id: check6
+                                    icon: "checkbox-blank-outline"
+                                    on_release: root.check6()
+                            
+                                YourContainer:
+                                    id: container
+                            
+                                    MDIconButton:
+                                        icon: "minus"
+                                        on_release: root.minus6()
+                                    MDTextField:
+                                        id: text6
+                                        size_hint: None, None
+                                        size: "27dp", "27dp"
+                                    MDIconButton:
+                                        icon: "plus"   
+                                        on_release: root.plus6()
+                            ThreeLineAvatarIconListItem:
+                                id: list72
+                                text: "Paneer Butter masala"
+                                secondary_text: "Total Item Price : 0"
+                                tertiary_text: "For Each Person 100/-"
+                                on_size:
+                                    self.ids._right_container.width = container.width + 200
+                                    self.ids._right_container.x = container.width + 200
+                            
+                                IconLeftWidget:
+                                    id: check6
+                                    icon: "checkbox-blank-outline"
+                                    on_release: root.check6()
+                            
+                                YourContainer:
+                                    id: container
+                            
+                                    MDIconButton:
+                                        icon: "minus"
+                                        on_release: root.minus6()
+                                    MDTextField:
+                                        id: text6
+                                        size_hint: None, None
+                                        size: "27dp", "27dp"
+                                    MDIconButton:
+                                        icon: "plus"   
+                                        on_release: root.plus6()               
+                    
             Tab : 
                 title : 'Sweet and hot Items'
                 BoxLayout:
@@ -971,25 +2621,250 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Gulab Jamun"   
-                                ListItemWithCheckbox:
-                                    text: "Gajar ka Halwa (Carrot Halwa)" 
-                                ListItemWithCheckbox:
-                                    text: "Ras Malai (Cottage Cheese Balls in Clotted Cream)" 
-                                ListItemWithCheckbox:
-                                    text: "Besan Ladoo (Roasted Gram Flour Balls)" 
-                                ListItemWithCheckbox:
-                                    text: "Kalakand" 
-                                ListItemWithCheckbox:
-                                    text: "Peanut Chikki (Peanut Brittle)" 
-                                ListItemWithCheckbox:
-                                    text: "Jalebi" 
-                                ListItemWithCheckbox:
-                                    text: "Soan Papdi" 
-                                ListItemWithCheckbox:
-                                    text: "Rice Kheer(Payasam)" 
+                                id: container8
+                                ThreeLineAvatarIconListItem:
+                                    id: list73
+                                    text: "Gulab Jamun"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list74
+                                    text: "Gajar ka Halwa (Carrot Halwa)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list75
+                                    text: "Ras Malai (Cottage Cheese Balls in Clotted Cream)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list76
+                                    text: "Besan Ladoo (Roasted Gram Flour Balls)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list77
+                                    text: "Kalakand"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list78
+                                    text: "Peanut Chikki (Peanut Brittle)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list79
+                                    text: "Jalebi"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list80
+                                    text: "Soan Papdi"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list81
+                                    text: "Rice Kheer(Payasam)"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                                     
                             MDLabel:
                                 text: "Hot Items: "
@@ -999,21 +2874,196 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Masala Peanuts"   
-                                ListItemWithCheckbox:
-                                    text: "Samosa" 
-                                ListItemWithCheckbox:
-                                    text: "Onion Pakodi" 
-                                ListItemWithCheckbox:
-                                    text: "Baggi" 
-                                ListItemWithCheckbox:
-                                    text: "Mixter" 
-                                ListItemWithCheckbox:
-                                    text: "Vada Pav" 
-                                ListItemWithCheckbox:
-                                    text: "Panipuri" 
+                                id: container9
+                                ThreeLineAvatarIconListItem:
+                                    id: list82
+                                    text: "Masala Peanuts"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list83
+                                    text: "Samosa"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list84
+                                    text: "Onion Pakodi"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list85
+                                    text: "Baggi"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list86
+                                    text: "Mixter"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list87
+                                    text: "Vada Pav"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list88
+                                    text: "Panipuri"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                                 
             Tab :
                 title : 'Soft Drinks'
@@ -1033,31 +3083,331 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15) 
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Sprite"   
-                                ListItemWithCheckbox:
-                                    text: "Thumps up" 
-                                ListItemWithCheckbox:
-                                    text: "Fanta" 
-                                ListItemWithCheckbox:
-                                    text: "Limka" 
-                                ListItemWithCheckbox:
-                                    text: "coco-cola" 
-                                ListItemWithCheckbox:
-                                    text: "Mirinda" 
-                                ListItemWithCheckbox:
-                                    text: "Mazza" 
-                                ListItemWithCheckbox:
-                                    text: "Apple Fizz" 
-                                ListItemWithCheckbox:
-                                    text: "pulpi-orange" 
-                                ListItemWithCheckbox:
-                                    text: "Mountaine Dew" 
-                                ListItemWithCheckbox:
-                                    text: "Red bull" 
-                                ListItemWithCheckbox:
-                                    text: "Artos"                    
+                                id: container10
+                                ThreeLineAvatarIconListItem:
+                                    id: list89
+                                    text: "Sprite"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list90
+                                    text: "Thumps up"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list91
+                                    text: "Fanta"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list92
+                                    text: "Limka"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list93
+                                    text: "coco-cola"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list94
+                                    text: "Mirinda"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list95
+                                    text: "Mazza"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list96
+                                    text: "Apple Fizz"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list97
+                                    text: "pulpi-orange"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list98
+                                    text: "Mountaine Dew"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list99
+                                    text: "Red bull"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list101
+                                    text: "Artos"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()                  
                                 
             Tab :
                 title : 'Tiffins'
@@ -1077,33 +3427,358 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                id: container1
-                                ListItemWithCheckbox:
-                                    text: "Dosa"   
-                                ListItemWithCheckbox:
-                                    text: "Masala Dosa" 
-                                ListItemWithCheckbox:
-                                    text: "onion Dosa" 
-                                ListItemWithCheckbox:
-                                    text: "Egg Dosa" 
-                                ListItemWithCheckbox:
-                                    text: "Idly" 
-                                ListItemWithCheckbox:
-                                    text: "Ghee Idly" 
-                                ListItemWithCheckbox:
-                                    text: "sambar Idly" 
-                                ListItemWithCheckbox:
-                                    text: "vada" 
-                                ListItemWithCheckbox:
-                                    text: "Mysore Bonda" 
-                                ListItemWithCheckbox:
-                                    text: "Upma" 
-                                ListItemWithCheckbox:
-                                    text: "chapati" 
-                                ListItemWithCheckbox:
-                                    text: "puri" 
-                                ListItemWithCheckbox:
-                                    text: "Porota" 
+                                id: container11
+                                ThreeLineAvatarIconListItem:
+                                    id: list102
+                                    text: "Dosa"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list103
+                                    text: "Masala Dosa"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list104
+                                    text: "onion Dosa"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list105
+                                    text: "Egg Dosa"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list106
+                                    text: "Idly"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list107
+                                    text: "Ghee Idly"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list108
+                                    text: "sambar Idly"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list109
+                                    text: "vada"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list110
+                                    text: "Mysore Bonda"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list111
+                                    text: "Upma"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list112
+                                    text: "chapati"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6() 
+                                ThreeLineAvatarIconListItem:
+                                    id: list113
+                                    text: "puri"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list114
+                                    text: "Porota"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                             
                             MDLabel:
                                 text: "Chatny Items: "
@@ -1113,16 +3788,141 @@ KV = '''
                                 haligh: 'center'
                                 padding: dp(15)        
                             MDList:
-                                ListItemWithCheckbox:
-                                    text: "Palli chutney" 
-                                ListItemWithCheckbox:
-                                    text: "red chutney"        
-                                ListItemWithCheckbox:
-                                    text: "Green Chutney" 
-                                ListItemWithCheckbox:
-                                    text: "Allu kurma curry" 
-                                ListItemWithCheckbox:
-                                    text: "Puri curry" 
+                                ThreeLineAvatarIconListItem:
+                                    id: list115
+                                    text: "Palli chutney"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list116
+                                    text: "red chutney"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list117
+                                    text: "Green Chutney"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list118
+                                    text: "Allu kurma curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
+                                ThreeLineAvatarIconListItem:
+                                    id: list119
+                                    text: "Puri curry"
+                                    secondary_text: "Total Item Price : 0"
+                                    tertiary_text: "For Each Person 100/-"
+                                    on_size:
+                                        self.ids._right_container.width = container.width + 200
+                                        self.ids._right_container.x = container.width + 200
+                                
+                                    IconLeftWidget:
+                                        id: check6
+                                        icon: "checkbox-blank-outline"
+                                        on_release: root.check6()
+                                
+                                    YourContainer:
+                                        id: container
+                                
+                                        MDIconButton:
+                                            icon: "minus"
+                                            on_release: root.minus6()
+                                        MDTextField:
+                                            id: text6
+                                            size_hint: None, None
+                                            size: "27dp", "27dp"
+                                        MDIconButton:
+                                            icon: "plus"   
+                                            on_release: root.plus6()
                                 
                 
 <ListItemWithCheckbox>:
