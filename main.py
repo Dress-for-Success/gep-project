@@ -1,3 +1,5 @@
+import datetime
+
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.screenmanager import ScreenManager, SlideTransition
@@ -8,6 +10,8 @@ import sqlite3
 import webbrowser
 from kivy.core.window import Window
 from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
+import mysql.connector
+import bcrypt
 
 kv = '''
 <DrawerClickableItem@MDNavigationDrawerItem>
@@ -843,6 +847,13 @@ kv = '''
                 on_release: app.root.current = 'signup'
                 
 '''
+connection = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="Saisupreme@3469",
+            database="kivymd"
+        )
+cursor1 = connection.cursor()
 
 Builder.load_string(kv)
 conn = sqlite3.connect('kivymd.db')
@@ -861,6 +872,9 @@ class MainScreen(Screen):
 
 
 class SignupScreen(Screen):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
     def password_change(self):
         if self.ids.password.password:
             self.ids.password.password = False
@@ -898,6 +912,9 @@ class SignupScreen(Screen):
     def login(self, name, mobile, email, password, password2):
         conn = sqlite3.connect('kivymd.db')
         cursor = conn.cursor()
+        date_time = datetime.datetime.today()
+        hash_pashword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        hash_pashword = hash_pashword.decode('utf-8')
 
         # Create a table if it doesn't exist
         cursor.execute(''' CREATE TABLE IF NOT EXISTS registration_table (
@@ -909,7 +926,14 @@ class SignupScreen(Screen):
                                     customer_status TEXT
                                     )
                                 ''')
-
+        cursor1.execute('''CREATE TABLE IF NOT EXISTS registration_table (
+                                    customer_id INT PRIMARY KEY NOT NULL,
+                                    name TEXT,
+                                    mobile BIGINT,
+                                    email TEXT,
+                                    password TEXT,
+                                    sign_up_date_time DATETIME
+                                )''')
         cursor.execute('select * from registration_table')
 
         p = cursor.fetchall()
@@ -919,14 +943,28 @@ class SignupScreen(Screen):
         for i in p:
             email_list.append(i[3])
             id_list.append(i[0])
+        cursor1.execute('select * from registration_table')
+
+        p = cursor1.fetchall()
+
+        email_list_mysql = []
+        id_list_mysql = []
+        for i in p:
+            email_list_mysql.append(i[3])
+            id_list_mysql.append(i[0])
 
         if len(id_list) == 0:
             a = 1000
         else:
             a = id_list[-1]
+        if len(id_list_mysql) == 0:
+            user_id = 1000
+        else:
+            user_id = id_list_mysql[-1]
 
         if name == '' or mobile == '' or email == '' or password == '' or password2 == '':
             self.show_alert_dialog("You Must Enter All Fields")
+            print(email_list_mysql)
 
         if name.isdigit() or len(name) < 3:
             self.ids.name.error = True
@@ -937,6 +975,7 @@ class SignupScreen(Screen):
         if not email.endswith("@gmail.com"):
             self.ids.email.error = True
 
+
         if len(password) < 8:
             self.ids.password.error = True
 
@@ -945,6 +984,9 @@ class SignupScreen(Screen):
 
         elif email in email_list:
             self.show_alert_dialog("email already exist")
+
+        elif email in email_list_mysql:
+            self.show_alert_dialog("Email already exists")
 
         else:
 
@@ -960,6 +1002,7 @@ class SignupScreen(Screen):
             ):
                 try:
                     a = a + 1
+                    user_id = user_id + 1
                     print(a)
                     self.ids.name.error = False
                     self.ids.mobile.error = False
@@ -969,8 +1012,11 @@ class SignupScreen(Screen):
 
                     cursor.execute(
                         "INSERT INTO registration_table (customer_id, name, mobile, email, password) VALUES (?,?,?, ?, ?)",
-                        (a, name, mobile, email, password))
+                        (a, name, mobile, email, hash_pashword))
                     conn.commit()
+                    query = "INSERT INTO registration_table (customer_id, name, mobile, email, password, sign_up_date_time) VALUES (%s, %s, %s, %s, %s, %s)"
+                    cursor1.execute(query, (user_id, name, mobile, email, hash_pashword, date_time.strftime('%Y-%m-%d %H:%M:%S')))
+                    connection.commit()
                     self.show_alert_dialog(f'{email} is successfully signed up')
                     self.manager.current = "login"
 
@@ -1020,8 +1066,17 @@ class LoginScreen(Screen):
         conn = sqlite3.connect('kivymd.db')
         cursor = conn.cursor()
         cursor.execute('select * from registration_table')
-
         p = cursor.fetchall()
+
+        cursor1.execute('select * from registration_table')
+
+        mysql_table = cursor1.fetchall()
+
+        email_list_mysql = []
+        password_list_mysql = []
+        for i in mysql_table:
+            email_list_mysql.append(i[3])
+            password_list_mysql.append(i[4])
 
         email_list = []
         password_list = []
@@ -1035,8 +1090,11 @@ class LoginScreen(Screen):
             self.show_alert_dialog(f'Enter All Fields')
 
         elif email in email_list and password in password_list:
+            password_value2 = bcrypt.checkpw(password.encode('utf-8'),
+                                            password_list[email_list.index(email)].encode('utf-8'))
+            print(password_value2)
             for i in p:
-                if email == i[3] and password == i[4]:
+                if email == i[3] and password_value2:
                     l = 'logged'
                     i = email_list.index(email)
                     cursor.execute("UPDATE registration_table SET customer_status = ? WHERE customer_id = ?",
@@ -1049,6 +1107,13 @@ class LoginScreen(Screen):
                     cursor.execute("UPDATE registration_table SET customer_status = ? WHERE customer_id = ?",
                                    (b, a))
                     conn.commit()
+
+        elif email in email_list_mysql and password in password_list_mysql:
+            password_value = bcrypt.checkpw(password.encode('utf-8'),
+                                            password_list_mysql[email_list_mysql.index(email)].encode('utf-8'))
+            for i in mysql_table:
+                if email == i[3] and password_value:
+                    self.manager.current = "success"
 
         else:
             self.show_alert_dialog(f'Invalid Credits')
@@ -1174,6 +1239,10 @@ class LoginApp(MDApp):
 
     def open_link(self, url):
         webbrowser.open(url)
+    def on_stop(self):
+        if hasattr(self.root.get_screen('signup'), 'connection') and self.root.get_screen('signup').connection.is_connected():
+            self.root.get_screen('signup').cursor.close()
+            self.root.get_screen('signup').connection.close()
 
 
 if __name__ == "__main__":
