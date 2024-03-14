@@ -3935,7 +3935,7 @@ Builder.load_string(KV)
 connection = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="Saisupreme@3469",
+            password="Aravind@123",
             database="kivymd"
         )
 cursor1 = connection.cursor()
