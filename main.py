@@ -13,6 +13,7 @@ from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
 import mysql.connector
 import bcrypt
 
+
 kv = '''
 <DrawerClickableItem@MDNavigationDrawerItem>
     focus_color: "#e7e4c0"
