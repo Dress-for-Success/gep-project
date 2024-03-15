@@ -10,6 +10,7 @@ import sqlite3
 import webbrowser
 from kivy.core.window import Window
 from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
+from wallet import (EventWallet, WalletBasicDetails, ActivateWallet, TopUpWallet)
 import bcrypt
 
 
@@ -298,7 +299,7 @@ kv = '''
                             md_bg_color: "#ffffff"
                             specific_text_color: "#4a4939"
                             left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
-                            right_action_items: [["bell"],["logout", lambda x: app.logout_function()]]
+                            right_action_items: [["wallet", lambda x: root.open_wallet()],["logout", lambda x: app.logout_function()]]
                         ScrollView:
                             MDBoxLayout:
                                 orientation: 'vertical'
@@ -1093,6 +1094,13 @@ class MainDashboardLB(Screen):
 
         # Access the desired screen by name and change the current screen
         sm.current = 'BorrowerLanding'
+    def open_wallet(self):
+        # Get the screen manager
+        sm = self.manager
+
+        # Access the desired screen by name and change the current screen
+        sm.current = 'EventWallet'
+
 
 
 class LoginApp(MDApp):
@@ -1107,8 +1115,6 @@ class LoginApp(MDApp):
         login_screen = LoginScreen(name="login")
         signup_screen = SignupScreen(name="signup")
         success_screen = MainDashboardLB(name="success")
-
-
         sm.add_widget(main_screen)
         sm.add_widget(login_screen)
         sm.add_widget(signup_screen)
@@ -1116,9 +1122,11 @@ class LoginApp(MDApp):
         sm.add_widget(EventPlanning(name='EventPlanning'))
         sm.add_widget(GuestInvitation(name='GuestInvitation'))
         sm.add_widget(FoodItems(name='FoodItems'))
-
+        sm.add_widget(EventWallet(name='EventWallet'))
+        sm.add_widget(WalletBasicDetails(name='WalletBasicDetails'))
+        sm.add_widget(ActivateWallet(name='ActivateWallet'))
+        sm.add_widget(TopUpWallet(name='TopUpWallet'))
         self.success_screen = success_screen
-
         return sm
 
     def logout_function(self):
