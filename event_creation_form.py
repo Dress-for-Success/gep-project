@@ -13,7 +13,6 @@ from kivymd.app import MDApp
 from kivymd.uix.list import IRightBodyTouch, OneLineAvatarIconListItem
 from kivymd.uix.selectioncontrol import MDCheckbox
 from kivymd.icon_definitions import md_icons
-import mysql.connector
 
 
 KV = '''
@@ -3932,14 +3931,6 @@ KV = '''
 '''
 
 Builder.load_string(KV)
-connection = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="Aravind@123",
-            database="kivymd"
-        )
-cursor1 = connection.cursor()
-
 class Tab(MDFloatLayout, MDTabsBase):
     pass
 class ListItemWithCheckbox(OneLineAvatarIconListItem):
@@ -4094,6 +4085,3 @@ class EventPlanning(Screen):
 class GuestInvitation(Screen):
     def gust_list_click(self):
         self.manager.current = "EventPlanning"
-
-
-

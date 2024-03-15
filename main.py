@@ -10,7 +10,6 @@ import sqlite3
 import webbrowser
 from kivy.core.window import Window
 from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
-import mysql.connector
 import bcrypt
 
 
@@ -848,13 +847,6 @@ kv = '''
                 on_release: app.root.current = 'signup'
                 
 '''
-connection = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="Aravind@123",
-            database="kivymd"
-        )
-cursor1 = connection.cursor()
 
 Builder.load_string(kv)
 conn = sqlite3.connect('kivymd.db')
@@ -914,117 +906,75 @@ class SignupScreen(Screen):
         conn = sqlite3.connect('kivymd.db')
         cursor = conn.cursor()
         date_time = datetime.datetime.today()
-        hash_pashword = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-        hash_pashword = hash_pashword.decode('utf-8')
+        hash_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        hash_password = hash_password.decode('utf-8')
 
         # Create a table if it doesn't exist
-        cursor.execute(''' CREATE TABLE IF NOT EXISTS registration_table (
-                                    customer_id INT PRIME NUMBER NOT NULL,
-                                    name TEXT,
-                                    mobile INT,
-                                    email TEXT,
-                                    password TEXT,
-                                    customer_status TEXT
-                                    )
-                                ''')
-        cursor1.execute('''CREATE TABLE IF NOT EXISTS registration_table (
-                                    customer_id INT PRIMARY KEY NOT NULL,
-                                    name TEXT,
-                                    mobile BIGINT,
-                                    email TEXT,
-                                    password TEXT,
-                                    sign_up_date_time DATETIME
-                                )''')
-        cursor.execute('select * from registration_table')
+        cursor.execute('''CREATE TABLE IF NOT EXISTS registration_table (
+                            customer_id INTEGER PRIMARY KEY,
+                            name TEXT,
+                            mobile INT,
+                            email TEXT,
+                            password TEXT,
+                            customer_status TEXT
+                            )''')
+
+        cursor.execute('SELECT * FROM registration_table')
 
         p = cursor.fetchall()
 
         email_list = []
-        id_list = []
+        password_list = []
+        customer_id = []
         for i in p:
             email_list.append(i[3])
-            id_list.append(i[0])
-        cursor1.execute('select * from registration_table')
+            password_list.append(i[4])
+            customer_id.append(i[0])
 
-        p = cursor1.fetchall()
 
-        email_list_mysql = []
-        id_list_mysql = []
-        for i in p:
-            email_list_mysql.append(i[3])
-            id_list_mysql.append(i[0])
-
-        if len(id_list) == 0:
-            a = 1000
+        if len(customer_id) == 0:
+            id = 1000
         else:
-            a = id_list[-1]
-        if len(id_list_mysql) == 0:
-            user_id = 1000
-        else:
-            user_id = id_list_mysql[-1]
+            id = customer_id[-1] + 1
 
         if name == '' or mobile == '' or email == '' or password == '' or password2 == '':
             self.show_alert_dialog("You Must Enter All Fields")
-            print(email_list_mysql)
+            return
 
-        if name.isdigit() or len(name) < 3:
-            self.ids.name.error = True
+        if not (name.isalpha() and len(name) >= 3):
+            self.show_alert_dialog("Invalid Name")
+            return
 
-        if not mobile.isdigit() or len(mobile) != 10:
-            self.ids.mobile.error = True
+        if not (mobile.isdigit() and len(mobile) == 10):
+            self.show_alert_dialog("Invalid Mobile Number")
+            return
 
         if not email.endswith("@gmail.com"):
-            self.ids.email.error = True
-
+            self.show_alert_dialog("Invalid Email")
+            return
 
         if len(password) < 8:
-            self.ids.password.error = True
+            self.show_alert_dialog("Password should be at least 8 characters long")
+            return
 
-        if password != password2 or password2 == "":
-            self.ids.password2.error = True
+        if password != password2:
+            self.show_alert_dialog("Passwords do not match")
+            return
 
-        elif email in email_list:
-            self.show_alert_dialog("email already exist")
-
-        elif email in email_list_mysql:
+        if email in email_list:
             self.show_alert_dialog("Email already exists")
+            return
 
-        else:
+        try:
+            cursor.execute("INSERT INTO registration_table (customer_id, name, mobile, email, password) VALUES (?, ?, ?, ?, ?)",
+                           (id, name, mobile, email, hash_password))
+            conn.commit()
+            self.show_alert_dialog(f'{email} is successfully signed up')
+            self.manager.current = "login"
 
-            if (
-                    password == password2
-                    and email not in email_list
-                    and not name.isdigit()
-                    and len(name) >= 3
-                    and email.endswith("@gmail.com")
-                    and len(mobile) == 10
-                    and mobile.isdigit()
-                    and len(password) >= 8
-            ):
-                try:
-                    a = a + 1
-                    user_id = user_id + 1
-                    print(a)
-                    self.ids.name.error = False
-                    self.ids.mobile.error = False
-                    self.ids.email.error = False
-                    self.ids.password.error = False
-                    self.ids.password2.error = False
+        except sqlite3.Error as err:
+            self.show_alert_dialog(f"Error signing up: {err}")
 
-                    cursor.execute(
-                        "INSERT INTO registration_table (customer_id, name, mobile, email, password) VALUES (?,?,?, ?, ?)",
-                        (a, name, mobile, email, hash_pashword))
-                    conn.commit()
-                    query = "INSERT INTO registration_table (customer_id, name, mobile, email, password, sign_up_date_time) VALUES (%s, %s, %s, %s, %s, %s)"
-                    cursor1.execute(query, (user_id, name, mobile, email, hash_pashword, date_time.strftime('%Y-%m-%d %H:%M:%S')))
-                    connection.commit()
-                    self.show_alert_dialog(f'{email} is successfully signed up')
-                    self.manager.current = "login"
-
-                except sqlite3.Error as err:
-                    self.show_alert_dialog(f"Error signing up: {err}")
-
-        conn.commit()
         conn.close()
 
 
@@ -1063,64 +1013,26 @@ class LoginScreen(Screen):
         self.dialog.dismiss()
 
     def on_login(self, email, password):
-        # Add your authentication logic here
         conn = sqlite3.connect('kivymd.db')
         cursor = conn.cursor()
-        cursor.execute('select * from registration_table')
-        p = cursor.fetchall()
+        cursor.execute('SELECT * FROM registration_table WHERE email = ?', (email,))
+        user = cursor.fetchone()
 
-        cursor1.execute('select * from registration_table')
+        if not user:
+            self.show_alert_dialog("User not found")
+            return
 
-        mysql_table = cursor1.fetchall()
+        stored_password = user[4]
 
-        email_list_mysql = []
-        password_list_mysql = []
-        for i in mysql_table:
-            email_list_mysql.append(i[3])
-            password_list_mysql.append(i[4])
-
-        email_list = []
-        password_list = []
-        id_list = []
-        for i in p:
-            email_list.append(i[3])
-            password_list.append(i[4])
-            id_list.append(i[0])
-
-        if email == '' and password == '':
-            self.show_alert_dialog(f'Enter All Fields')
-
-        elif email in email_list and password in password_list:
-            password_value2 = bcrypt.checkpw(password.encode('utf-8'),
-                                            password_list[email_list.index(email)].encode('utf-8'))
-            print(password_value2)
-            for i in p:
-                if email == i[3] and password_value2:
-                    l = 'logged'
-                    i = email_list.index(email)
-                    cursor.execute("UPDATE registration_table SET customer_status = ? WHERE customer_id = ?",
-                                   (l, id_list[i]))
-                    conn.commit()
-                    self.manager.current = "success"
-                else:
-                    b = ''
-                    a = i[0]
-                    cursor.execute("UPDATE registration_table SET customer_status = ? WHERE customer_id = ?",
-                                   (b, a))
-                    conn.commit()
-
-        elif email in email_list_mysql and password in password_list_mysql:
-            password_value = bcrypt.checkpw(password.encode('utf-8'),
-                                            password_list_mysql[email_list_mysql.index(email)].encode('utf-8'))
-            for i in mysql_table:
-                if email == i[3] and password_value:
-                    self.manager.current = "success"
-
+        if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
+            cursor.execute("UPDATE registration_table SET customer_status = ? WHERE email = ?", ('logged', email))
+            conn.commit()
+            self.manager.current = "success"
         else:
-            self.show_alert_dialog(f'Invalid Credits')
+            self.show_alert_dialog("Invalid credentials")
 
-        conn.commit()
         conn.close()
+
 
 
 class MainDashboardLB(Screen):
@@ -1240,11 +1152,6 @@ class LoginApp(MDApp):
 
     def open_link(self, url):
         webbrowser.open(url)
-    def on_stop(self):
-        if hasattr(self.root.get_screen('signup'), 'connection') and self.root.get_screen('signup').connection.is_connected():
-            self.root.get_screen('signup').cursor.close()
-            self.root.get_screen('signup').connection.close()
-
 
 if __name__ == "__main__":
     LoginApp().run()
