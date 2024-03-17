@@ -11,6 +11,7 @@ import sqlite3
 import webbrowser
 from kivy.core.window import Window
 from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
+from wallet import (EventWallet, WalletBasicDetails, ActivateWallet, TopUpWallet)
 import bcrypt
 import anvil.server
 
@@ -301,7 +302,7 @@ kv = '''
                             md_bg_color: "#ffffff"
                             specific_text_color: "#4a4939"
                             left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
-                            right_action_items: [["bell"],["logout", lambda x: app.logout_function()]]
+                            right_action_items: [["wallet",lambda x: root.wallet_function()],["logout", lambda x: app.logout_function()]]
                         ScrollView:
                             MDBoxLayout:
                                 orientation: 'vertical'
@@ -1121,19 +1122,15 @@ class MainDashboardLB(Screen):
         sm.transition = SlideTransition(direction='left')
         sm.current = screen_name
 
-    def go_to_lender_landing(self):
+
+
+    def wallet_function(self):
         # Get the screen manager
         sm = self.manager
 
         # Access the desired screen by name and change the current screen
-        sm.current = 'LenderLanding'
+        sm.current = 'EventWallet'
 
-    def go_to_borrower_landing(self):
-        # Get the screen manager
-        sm = self.manager
-
-        # Access the desired screen by name and change the current screen
-        sm.current = 'BorrowerLanding'
 
 
 class LoginApp(MDApp):
@@ -1156,7 +1153,10 @@ class LoginApp(MDApp):
         sm.add_widget(EventPlanning(name='EventPlanning'))
         sm.add_widget(GuestInvitation(name='GuestInvitation'))
         sm.add_widget(FoodItems(name='FoodItems'))
-
+        sm.add_widget(EventWallet(name='EventWallet'))
+        sm.add_widget(WalletBasicDetails(name='WalletBasicDetails'))
+        sm.add_widget(ActivateWallet(name='ActivateWallet'))
+        sm.add_widget(TopUpWallet(name='TopUpWallet'))
         self.success_screen = success_screen
 
         return sm
