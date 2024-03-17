@@ -1,5 +1,6 @@
 import datetime
 
+from anvil.tables import app_tables
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.screenmanager import ScreenManager, SlideTransition
@@ -10,9 +11,10 @@ import sqlite3
 import webbrowser
 from kivy.core.window import Window
 from event_creation_form import (EventPlanning, GuestInvitation, FoodItems)
-from wallet import (EventWallet, WalletBasicDetails, ActivateWallet, TopUpWallet)
 import bcrypt
+import anvil.server
 
+anvil.server.connect("server_ZQNS2ROMN5KSV6VF4I3J7TKE-W5EMMXR3HB5MX5EH")
 
 kv = '''
 <DrawerClickableItem@MDNavigationDrawerItem>
@@ -166,7 +168,7 @@ kv = '''
                         pos_hint: {'center_x': 0.9, 'center_y': 0.1}
                         size_hint: None, None
                         size: "90dp", "80dp"
-            
+
         MDTextField:
             id: name
             hint_text: 'Enter full name'
@@ -246,7 +248,7 @@ kv = '''
                 size_hint: 1, None
                 height: "50dp"
                 font_name: "Roboto-Bold"
-                
+
             MDFillRoundFlatIconButton:
                 text: "Signup"
                 on_release: app.root.get_screen("signup").login(name.text,mobile.text,email.text, password.text, password2.text)
@@ -299,7 +301,7 @@ kv = '''
                             md_bg_color: "#ffffff"
                             specific_text_color: "#4a4939"
                             left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
-                            right_action_items: [["wallet", lambda x: root.open_wallet()],["logout", lambda x: app.logout_function()]]
+                            right_action_items: [["bell"],["logout", lambda x: app.logout_function()]]
                         ScrollView:
                             MDBoxLayout:
                                 orientation: 'vertical'
@@ -394,7 +396,7 @@ kv = '''
                                                             font_size: dp(15)
                                                             theme_text_color: 'Custom'
                                                             text_color: 6/255, 143/255, 236/255, 1
-                                                    
+
                                                     MDFillRoundFlatIconButton:
                                                         text: "Interested"
                                                         font_size: dp(13)
@@ -846,7 +848,7 @@ kv = '''
                 theme_text_color: 'Custom'
                 text_color: 6/255, 143/255, 236/255, 1
                 on_release: app.root.current = 'signup'
-                
+
 '''
 
 Builder.load_string(kv)
@@ -876,6 +878,7 @@ class SignupScreen(Screen):
         else:
             self.ids.password.password = True
             self.ids.icon1.icon = 'eye'
+
     def password_change2(self):
         if self.ids.password2.password:
             self.ids.password2.password = False
@@ -932,6 +935,17 @@ class SignupScreen(Screen):
             password_list.append(i[4])
             customer_id.append(i[0])
 
+        data = app_tables.signup_table.search()
+        anvil_customer_id = []
+        anvil_email = []
+        for i in data:
+            anvil_customer_id.append(i['customer_id'])
+            anvil_email.append(i['email'])
+
+        if len(anvil_customer_id) == 0:
+            c_id = 1000
+        else:
+            c_id = anvil_customer_id[-1] + 1
 
         if len(customer_id) == 0:
             id = 1000
@@ -965,10 +979,18 @@ class SignupScreen(Screen):
         if email in email_list:
             self.show_alert_dialog("Email already exists")
             return
+        if email in anvil_email:
+            self.show_alert_dialog("Email already exists")
+            return
 
         try:
-            cursor.execute("INSERT INTO registration_table (customer_id, name, mobile, email, password) VALUES (?, ?, ?, ?, ?)",
-                           (id, name, mobile, email, hash_password))
+            sign_date_time = date_time.today()
+            cursor.execute(
+                "INSERT INTO registration_table (customer_id, name, mobile, email, password) VALUES (?, ?, ?, ?, ?)",
+                (id, name, mobile, email, hash_password))
+            app_tables.signup_table.add_row(customer_id=c_id, name=name, mobile_number=int(mobile), email=email,
+                                            password=hash_password,
+                                            sign_up_date_time=sign_date_time)
             conn.commit()
             self.show_alert_dialog(f'{email} is successfully signed up')
             self.manager.current = "login"
@@ -987,6 +1009,7 @@ class LoginScreen(Screen):
         else:
             self.ids.password.password = True
             self.ids.icon1.icon = 'eye'
+
     def change_text3(self):
         # Access the label in another screen and update its text
         login_status_label1 = MDApp.get_running_app().root.get_screen('signup')
@@ -1018,9 +1041,18 @@ class LoginScreen(Screen):
         cursor = conn.cursor()
         cursor.execute('SELECT * FROM registration_table WHERE email = ?', (email,))
         user = cursor.fetchone()
+        data = app_tables.signup_table.search()
+        anvil_email = []
+        anvil_password = []
+        for i in data:
+            anvil_email.append(i['email'])
+            anvil_password.append(i['password'])
 
         if not user:
             self.show_alert_dialog("User not found")
+            return
+        if email not in anvil_email:
+            self.show_alert_dialog("Please SignUp Email Not Found")
             return
 
         stored_password = user[4]
@@ -1032,8 +1064,16 @@ class LoginScreen(Screen):
         else:
             self.show_alert_dialog("Invalid credentials")
 
-        conn.close()
+        if email in anvil_email:
+            index = anvil_email.index(email)
+            print(bcrypt.checkpw(password.encode('utf-8'), anvil_password[index].encode('utf-8')))
+            if email == anvil_email[index] and bcrypt.checkpw(password.encode('utf-8'),
+                                                              anvil_password[index].encode('utf-8')):
+                self.manager.current = "success"
+            else:
+                self.show_alert_dialog("Invalid credentials")
 
+        conn.close()
 
 
 class MainDashboardLB(Screen):
@@ -1094,13 +1134,6 @@ class MainDashboardLB(Screen):
 
         # Access the desired screen by name and change the current screen
         sm.current = 'BorrowerLanding'
-    def open_wallet(self):
-        # Get the screen manager
-        sm = self.manager
-
-        # Access the desired screen by name and change the current screen
-        sm.current = 'EventWallet'
-
 
 
 class LoginApp(MDApp):
@@ -1115,6 +1148,7 @@ class LoginApp(MDApp):
         login_screen = LoginScreen(name="login")
         signup_screen = SignupScreen(name="signup")
         success_screen = MainDashboardLB(name="success")
+
         sm.add_widget(main_screen)
         sm.add_widget(login_screen)
         sm.add_widget(signup_screen)
@@ -1122,17 +1156,14 @@ class LoginApp(MDApp):
         sm.add_widget(EventPlanning(name='EventPlanning'))
         sm.add_widget(GuestInvitation(name='GuestInvitation'))
         sm.add_widget(FoodItems(name='FoodItems'))
-        sm.add_widget(EventWallet(name='EventWallet'))
-        sm.add_widget(WalletBasicDetails(name='WalletBasicDetails'))
-        sm.add_widget(ActivateWallet(name='ActivateWallet'))
-        sm.add_widget(TopUpWallet(name='TopUpWallet'))
+
         self.success_screen = success_screen
+
         return sm
 
     def logout_function(self):
         # Access the stored reference to the success_screen and call its method
         self.success_screen.change_text3()
-
 
     def on_pre_enter(self):
         Window.bind(on_keyboard=self.on_keyboard)
@@ -1160,6 +1191,7 @@ class LoginApp(MDApp):
 
     def open_link(self, url):
         webbrowser.open(url)
+
 
 if __name__ == "__main__":
     LoginApp().run()
