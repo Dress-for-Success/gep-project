@@ -1051,28 +1051,26 @@ class LoginScreen(Screen):
 
         if not user:
             self.show_alert_dialog("User not found")
-            return
-        if email not in anvil_email:
-            self.show_alert_dialog("Please SignUp Email Not Found")
-            return
-
-        stored_password = user[4]
-
-        if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
-            cursor.execute("UPDATE registration_table SET customer_status = ? WHERE email = ?", ('logged', email))
-            conn.commit()
-            self.manager.current = "success"
         else:
-            self.show_alert_dialog("Invalid credentials")
+            stored_password = user[4]
 
-        if email in anvil_email:
-            index = anvil_email.index(email)
-            print(bcrypt.checkpw(password.encode('utf-8'), anvil_password[index].encode('utf-8')))
-            if email == anvil_email[index] and bcrypt.checkpw(password.encode('utf-8'),
-                                                              anvil_password[index].encode('utf-8')):
+            if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
+                cursor.execute("UPDATE registration_table SET customer_status = ? WHERE email = ?", ('logged', email))
+                conn.commit()
                 self.manager.current = "success"
             else:
                 self.show_alert_dialog("Invalid credentials")
+        if email not in anvil_email and not user:
+            self.show_alert_dialog("Please SignUp Email Not Found")
+        else:
+            if email in anvil_email:
+                index = anvil_email.index(email)
+                print(bcrypt.checkpw(password.encode('utf-8'), anvil_password[index].encode('utf-8')))
+                if email == anvil_email[index] and bcrypt.checkpw(password.encode('utf-8'),
+                                                                  anvil_password[index].encode('utf-8')):
+                    self.manager.current = "success"
+                else:
+                    self.show_alert_dialog("Invalid credentials")
 
         conn.close()
 
