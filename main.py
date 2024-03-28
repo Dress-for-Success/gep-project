@@ -678,6 +678,7 @@ kv = '''
                     MDNavigationDrawerHeader:
                         title: "Welcome"
                         title_color: "#4a4939"
+                        id: name_label
                         text: "sai mamidala"
                         spacing: "4dp"
                         padding: "12dp", 0, 0, "56dp"

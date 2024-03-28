@@ -1,5 +1,6 @@
 import sqlite3
 
+from anvil.tables import app_tables
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
@@ -74,7 +75,7 @@ KV = '''
                                 line_color_normal: [1, 1, 1, 1]
                                 line_color_focus: [1, 1, 1, 1]
                                 font_name: "Roboto-Bold"
-                                helper_text: "Last Name"
+                                helper_text: "First Name"
                                 helper_text_mode: "on_focus"
 
                         MDFloatLayout:
@@ -176,7 +177,7 @@ KV = '''
                                 width: 1 
 
                         MDTextField:
-                            id: text_input3
+                            id: text_input4
                             size_hint: None, None
                             size_hint_x: 0.91
                             multiline: False
@@ -195,9 +196,9 @@ KV = '''
                         text: "  Type of event"
 
                     Spinner:
-                        id: event
+                        id: event1
                         text: "Select Event"
-                        values: ["", "", ""]
+                        values: ["Select Event","Birthday Event", "Party Event", "Marriage Event"]
                         multiline: False
                         size_hint: 1, None
                         height: "40dp"
@@ -234,6 +235,45 @@ KV = '''
                             Line:
                                 width: 0.7
                                 rounded_rectangle: (self.x, self.y, self.width, self.height, 15) 
+                                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(5)
+
+                    MDLabel:
+                        text: "  Exact No Of Guests"
+
+                    MDFloatLayout:
+                        size_hint: 1, None
+                        size: "150dp", "40dp"  
+                        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                        size_hint_x: 1
+                        canvas.before:
+                            Color:
+                                rgba: 1, 1, 1, 1
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [10, 10, 10, 10]
+
+                            Color:
+                                rgba: 0, 0, 0, 1
+
+                            Line:
+                                rounded_rectangle: [self.x + 5, self.y + 0.9, self.width - 2, self.height - 0.5, 10, 10, 10, 10]
+                                width: 1 
+
+                        MDTextField:
+                            id: text_input5
+                            size_hint: None, None
+                            size_hint_x: 0.91
+                            multiline: False
+                            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                            line_color_normal: [1, 1, 1, 1]
+                            line_color_focus: [1, 1, 1, 1]
+                            font_name: "Roboto-Bold"
+                            helper_text: "Enter Valid no of guests"
+                            helper_text_mode: "on_focus"
 
                 MDBoxLayout:
                     orientation: 'vertical'
@@ -243,7 +283,7 @@ KV = '''
                         text: "  Type of event Hosting"
 
                     Spinner:
-                        id: event
+                        id: event2
                         text: "Select Event Hosting"
                         values: ["Indoor", "Outdoor", "Any of the above"]
                         multiline: False
@@ -287,7 +327,7 @@ KV = '''
                                 width: 1 
 
                         MDTextField:
-                            id: text_input3
+                            id: text_input6
                             size_hint: None, None
                             size_hint_x: 0.91
                             multiline: False
@@ -300,7 +340,7 @@ KV = '''
                     cols: 2
                     padding: dp(10)
                     MDTextField:
-                        id: date_label
+                        id: date
                         hint_text: "Event Date"
                         helper_text: 'YYYY-MM-DD'
                         font_name: "Roboto-Bold"
@@ -316,7 +356,7 @@ KV = '''
                     cols: 2
                     padding: dp(10)
                     MDTextField:
-                        id: time_label
+                        id: time
                         hint_text: "Event Time"
                         helper_text: 'YYYY-MM-DD'
                         font_name: "Roboto-Bold"
@@ -354,7 +394,7 @@ KV = '''
                                 width: 1 
 
                         MDTextField:
-                            id: text_input3
+                            id: text_input7
                             size_hint: None, None
                             size_hint_x: 0.91
                             multiline: False
@@ -373,7 +413,7 @@ KV = '''
                         text: "Please provide more details about the event, such as the desired theme food and drinks"
 
                     MDTextField:
-                        id: text_input3
+                        id: text_input8
                         size_hint: 1 , None
                         mode: 'rectangle'
                         max_text_length: 100                  
@@ -396,6 +436,7 @@ KV = '''
                         md_bg_color: 38/255, 40/255, 41/255, 1
                         on_release: app.root.current = "GuestInvitation"
                         size_hint: 1, None
+                        on_release: root.create_events(text_input1.text, text_input2.text, text_input3.text, text_input4.text, event.text, event1.text, event2.text, text_input5.text, text_input6.text, date.text, time.text, text_input7.text, text_input8.text)
 <GuestInvitation>
     BoxLayout:
         orientation: 'vertical'
@@ -543,7 +584,7 @@ KV = '''
                 on_release: app.root.current = "FoodItems"
                 font_name: "Roboto-Bold.ttf"
                 size_hint: 1, None
-                text_color: 1, 1, 1, 1 
+                text_color: 1, 1, 1, 1
 
 <FoodItems>:
 
@@ -6236,7 +6277,6 @@ class FoodItems(Screen):
     def on_menu_button_press(self):
         self.manager.current = "GuestInvitation"
 
-
 class EventPlanning(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -6247,7 +6287,7 @@ class EventPlanning(Screen):
         date_picker.open()
 
     def on_date_selected(self, instance, value, date_range):
-        date_label = self.ids.date_label
+        date_label = self.ids.date
         date_label.text = f"{value}"
 
     def show_time_picker1(self):
@@ -6256,12 +6296,29 @@ class EventPlanning(Screen):
         time_picker.open()
 
     def on_time_selected(self, instance, time):
-        time_label = self.ids.time_label
+        time_label = self.ids.time
         time_label.text = f"{time.strftime('%H:%M')}"
 
     def event_list_click(self):
         self.manager.current = "success"
 
+    def create_events(self, value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11, value12, value13):
+        data = app_tables.create_event_table.search()
+        id_list = []
+        for i in data:
+            id_list.append(i['event_id'])
+
+        if len(id_list) == 0:
+            event_id = 'EventID:100000'
+        else:
+            num =  int(id_list[-1].split(':')[-1]) + 1
+            event_id = f'EventID:{num}'
+        app_tables.create_event_table.add_row(customer_name=value1 + " " + value2, customer_email=value3,
+                                              customer_numer=int(value4), expecting_guests=value5,
+                                              event_type=value6, event_hosting_type=value7, no_of_guests=int(value8),
+                                              customer_budget=int(value9),
+                                              event_date=value10, event_time=value11, vanue_place=value12,
+                                              other_details=value13, event_id=event_id)
 
 class GuestInvitation(Screen):
     def gust_list_click(self):
